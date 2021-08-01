@@ -3,12 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:stacked/stacked.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatefulWidget {
-  //MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title = "test";
-
   @override
   _SettingsState createState() => _SettingsState();
 }
@@ -53,6 +50,15 @@ class _SettingsState extends State<Settings> {
                       subtitle: viewModel.token,
                       leading: Icon(Icons.password),
                       onPressed: viewModel.changeToken,
+                    ),
+                    SettingsTile(
+                      title: "Subscribe",
+                      subtitle: "Press here to open the subscription page.",
+                      leading: Icon(Icons.monetization_on),
+                      onPressed: (BuildContext context) {
+                        launch(
+                            "https://github.com/marketplace/createstructure");
+                      },
                     ),
                     SettingsTile(
                       title: "Refresh",

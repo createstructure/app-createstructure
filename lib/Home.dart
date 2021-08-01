@@ -5,7 +5,6 @@ import 'package:createstructure/viewmodel/HomeViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   //MyHomePage({Key key, this.title}) : super(key: key);
@@ -29,13 +28,14 @@ class _HomeState extends State<Home> {
               title: Text("createstructure"),
               leading: Icon(Icons.home),
               actions: <Widget>[
-                Padding(
+                /*Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: IconButton(
                     icon: Icon(Icons.source_outlined),
-                    onPressed: () => launch(""),
+                    onPressed: () => launch(
+                        "https://github.com/createstructure/app-createstructure"),
                   ),
-                ),
+                ),*/
                 Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: IconButton(
