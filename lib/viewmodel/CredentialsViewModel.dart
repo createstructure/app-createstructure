@@ -1,9 +1,7 @@
-import 'package:createstructure/model/SettingsData.dart';
 import 'package:stacked/stacked.dart';
 
 class CredentialsViewModel extends MultipleFutureViewModel {
   static const DEFAULT_FUNCTION = "DEFAULT_FUNCTION";
-  SettingsData _settingsData;
 
   @override
   Map<String, Future Function()> get futuresMap =>

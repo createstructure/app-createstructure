@@ -1,11 +1,14 @@
 class Answers {
-  String _name, _template, _descr, _prefix, _org, _team;
-  bool _private, _isOrg = false;
+  String _name = "";
+  String _template = "";
+  String _descr = "";
+  String _prefix = "";
+  String _org = "";
+  String _team = "";
+  bool _private = false;
+  bool _isOrg = false;
 
-  Answers() {
-    _name = _template = _descr = _prefix = _org = _team = "";
-    _private = _isOrg = false;
-  }
+  Answers() {}
 
   get isOrg => _isOrg;
 

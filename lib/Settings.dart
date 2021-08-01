@@ -1,6 +1,7 @@
 import 'package:createstructure/viewmodel/SettingsViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:stacked/stacked.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,24 +37,24 @@ class _SettingsState extends State<Settings> {
           body: SettingsList(
             sections: [
               SettingsSection(
-                  title: "Identification",
+                  title: AppLocalizations.of(context)!.identification,
                   titlePadding: EdgeInsets.all(20),
                   tiles: [
                     SettingsTile(
-                      title: "Username",
+                      title: AppLocalizations.of(context)!.username,
                       subtitle: viewModel.username,
                       leading: Icon(Icons.person),
                       onPressed: viewModel.changeUsername,
                     ),
                     SettingsTile(
-                      title: "Token",
+                      title: AppLocalizations.of(context)!.token,
                       subtitle: viewModel.token,
                       leading: Icon(Icons.password),
                       onPressed: viewModel.changeToken,
                     ),
                     SettingsTile(
-                      title: "Subscribe",
-                      subtitle: "Press here to open the subscription page.",
+                      title: AppLocalizations.of(context)!.subscribe,
+                      subtitle: AppLocalizations.of(context)!.subscribeLong,
                       leading: Icon(Icons.monetization_on),
                       onPressed: (BuildContext context) {
                         launch(
@@ -61,8 +62,8 @@ class _SettingsState extends State<Settings> {
                       },
                     ),
                     SettingsTile(
-                      title: "Refresh",
-                      subtitle: "Press here to refresh info.",
+                      title: AppLocalizations.of(context)!.refresh,
+                      subtitle: AppLocalizations.of(context)!.refreshLong,
                       leading: Icon(Icons.refresh),
                       onPressed: (BuildContext context) {
                         setState(() {});
@@ -76,7 +77,6 @@ class _SettingsState extends State<Settings> {
       viewModelBuilder: () => SettingsViewModel(),
       onModelReady: (viewModel) async {
         viewModel.init();
-        //textEditingController.text = await viewModel.getDevice();
       },
     );
   }

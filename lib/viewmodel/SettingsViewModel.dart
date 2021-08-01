@@ -2,18 +2,18 @@ import 'package:createstructure/model/SettingsData.dart';
 import 'package:createstructure/model/SettingsType.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
 
 class SettingsViewModel extends MultipleFutureViewModel {
   static const DEFAULT_FUNCTION = "DEFAULT_FUNCTION";
   final _formKey = GlobalKey<FormState>();
-  SettingsData _settingsData;
+  SettingsData _settingsData = new SettingsData();
 
   get username => _settingsData.username;
   get token => _settingsData.token;
 
   init() async {
-    _settingsData = new SettingsData();
     await _settingsData.loadData();
   }
 
@@ -51,10 +51,10 @@ class SettingsViewModel extends MultipleFutureViewModel {
                     Padding(
                       padding: EdgeInsets.all(8.0),
                       child: TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                             icon: Icon(Icons.person),
-                            hintText: "Insert here",
-                            labelText: "Insert:"),
+                            hintText: AppLocalizations.of(context)!.insertLong,
+                            labelText: AppLocalizations.of(context)!.insert),
                         onChanged: (String value) {
                           switch (settingsType) {
                             case SettingsType.USERNAME:
@@ -82,11 +82,13 @@ class SettingsViewModel extends MultipleFutureViewModel {
   }
 
   changeUsername(BuildContext context) async {
-    change(context, "Change Username", SettingsType.USERNAME);
+    change(context, AppLocalizations.of(context)!.changeUsername,
+        SettingsType.USERNAME);
   }
 
   changeToken(BuildContext context) {
-    change(context, "Change Token", SettingsType.TOKEN);
+    change(
+        context, AppLocalizations.of(context)!.changeToken, SettingsType.TOKEN);
   }
 
   Future<String> defaultFunction() async {

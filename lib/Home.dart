@@ -4,6 +4,7 @@ import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/viewmodel/HomeViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
 
 class Home extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
       builder: (context, viewModel, child) {
         return Scaffold(
             appBar: AppBar(
-              title: Text("createstructure"),
+              title: Text(AppLocalizations.of(context)!.createstructure),
               leading: Icon(Icons.home),
               actions: <Widget>[
                 /*Padding(
@@ -69,10 +70,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.format_quote),
-                          hintText: "Name of the project",
-                          labelText: "Insert the name of the project:"),
+                          hintText: AppLocalizations.of(context)!.q1short,
+                          labelText: AppLocalizations.of(context)!.q1long),
                       onChanged: (String value) {
                         _answers.name = value;
                       },
@@ -81,10 +82,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.copy),
-                          hintText: "Name of the template",
-                          labelText: "Insert the name of the template:"),
+                          hintText: AppLocalizations.of(context)!.q2short,
+                          labelText: AppLocalizations.of(context)!.q2long),
                       onChanged: (String value) {
                         _answers.template = value;
                       },
@@ -93,10 +94,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.description),
-                          hintText: "Description",
-                          labelText: "Insert the description:"),
+                          hintText: AppLocalizations.of(context)!.q3short,
+                          labelText: AppLocalizations.of(context)!.q3long),
                       onChanged: (String value) {
                         _answers.descr = value;
                       },
@@ -105,10 +106,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.navigate_before),
-                          hintText: "Prefix",
-                          labelText: "Insert the prefix (if you want once):"),
+                          hintText: AppLocalizations.of(context)!.q4short,
+                          labelText: AppLocalizations.of(context)!.q4long),
                       onChanged: (String value) {
                         _answers.prefix = value;
                       },
@@ -117,11 +118,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.business),
-                          hintText: "Organization name",
-                          labelText:
-                              "Insert the Organization name (if you want to put the new project there):"),
+                          hintText: AppLocalizations.of(context)!.q5short,
+                          labelText: AppLocalizations.of(context)!.q5long),
                       onChanged: (String value) {
                         _answers.org = value;
                         _answers.isOrg = value != null && value != "";
@@ -131,11 +131,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.group),
-                          hintText: "Organization team",
-                          labelText:
-                              "Insert the team (if you use Organization):"),
+                          hintText: AppLocalizations.of(context)!.q6short,
+                          labelText: AppLocalizations.of(context)!.q6long),
                       onChanged: (String value) {
                         _answers.team = value;
                       },
@@ -144,11 +143,10 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                           icon: Icon(Icons.public),
-                          hintText: "Private",
-                          labelText:
-                              "Insert if you want to create a private repo [Y/n]:"),
+                          hintText: AppLocalizations.of(context)!.q7short,
+                          labelText: AppLocalizations.of(context)!.q7long),
                       onChanged: (String value) {
                         _answers.private =
                             !(["N", "No", "n", "no"].contains(value));
@@ -160,15 +158,15 @@ class _HomeState extends State<Home> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          _formKey.currentState.reset();
+                          _formKey.currentState?.reset();
                         },
-                        child: Text("Reset"),
+                        child: Text(AppLocalizations.of(context)!.reset),
                       ),
                       TextButton(
                         onPressed: () {
-                          viewModel.sendData(_answers);
+                          viewModel.sendData(_answers, context);
                         },
-                        child: Text("Create"),
+                        child: Text(AppLocalizations.of(context)!.create),
                       ),
                     ],
                   ),

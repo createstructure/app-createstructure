@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   settings_ui: ^1.0.0
@@ -32,7 +32,10 @@ dependencies:
   flutter_native_splash: ^1.2.0
   fluttertoast: ^8.0.7
   url_launcher: ^6.0.9
+  intl: ^0.17.0
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
 dev_dependencies:
@@ -41,6 +44,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
 
 flutter_icons:
   android: true

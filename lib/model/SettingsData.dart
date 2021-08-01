@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsData {
-  String _username, _token;
+  String _username = "";
+  String _token = "";
 
-  int _counter = 0;
-  SettingsData();
+  SettingsData() {}
 
-  void loadData() async {
+  Future<void> loadData() async {
     try {
       final prefs = await SharedPreferences.getInstance();
       final tmp =
@@ -21,7 +21,7 @@ class SettingsData {
     }
   }
 
-  void saveData() async {
+  Future<void> saveData() async {
     final prefs = await SharedPreferences.getInstance();
     debugPrint(jsonEncode(this.toJson()));
     await prefs.setString("settings", jsonEncode(this.toJson()));
@@ -36,13 +36,7 @@ class SettingsData {
         'token': _token,
       };
 
-  get token => _token;
-
-  set token(String value) {
-    _token = value;
-  }
-
-  get username => _username;
+  String get username => _username;
 
   set username(String value) {
     _username = value;
@@ -51,5 +45,11 @@ class SettingsData {
   @override
   String toString() {
     return 'SettingsData{_username: $_username, _token: $_token}';
+  }
+
+  String get token => _token;
+
+  set token(String value) {
+    _token = value;
   }
 }
