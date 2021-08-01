@@ -1,0 +1,1 @@
+enum SettingsType { USERNAME, TOKEN }

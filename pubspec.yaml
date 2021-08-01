@@ -1,0 +1,54 @@
+name: createstructure
+description: The application for createstructure
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  settings_ui: ^1.0.0
+  stacked_services: ^0.8.12
+  stacked: ^2.2.3
+  http: ^0.13.3
+  shared_preferences: ^0.4.3
+  cupertino_icons: ^1.0.0
+  flutter_launcher_icons: ^0.9.0
+  end_credits: ^1.0.0+1
+  flutter_native_splash: ^1.2.0
+  fluttertoast: ^8.0.7
+  url_launcher: ^6.0.9
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path_ios: "icon/createstructure.png"
+  image_path_android: "icon/createstructure.png"
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: "icon/createstructure.png"
+  fullscreen: true

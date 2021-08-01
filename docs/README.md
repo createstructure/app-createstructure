@@ -5,29 +5,11 @@
 Repo where there is the mobile application to use createstructure
 
 ## Required
- - 
+ - Android studio
+ - Flutter
+ - Flutter dependencies (flutter get)
  
 ## Directories structure
- - .github
-   - ISSUE_TEMPLATE
-     - bug_report.md
-     - feature-request.md
- - bin
-     - appcreatestrcuture
- - doc
-   - LICENSE
-   - README.md
- - log
-   - trace.log
-   
-### Execution examples
- - 
-
-# Changelog
- - [Version_1.0_2021-08-01](#Version_10_2021-08-01)
-
-## Version_1.0_2021-08-01
- - Initial version
 
 ---
 Made by Castellani Davide 
