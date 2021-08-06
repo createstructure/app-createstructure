@@ -84,7 +84,7 @@ jobs:
 
       - name: Set envirorment varible(s)
         run: |
-          echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/debian-createstructure/releases/latest | jq -r '.upload_url')"
+          echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/app-createstructure/releases/latest | jq -r '.upload_url')"
           echo "::set-output name=BUNDLE::build/app/outputs/bundle/release/app-release.aab"
         id: envirorment-variables
 
