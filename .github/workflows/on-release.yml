@@ -58,9 +58,6 @@ jobs:
       - name: Build Android App Bundle
         run: flutter build appbundle --no-sound-null-safety
 
-      - name: Build Android App Apk
-        run: flutter build apk --no-sound-null-safety
-
       - name: Setup Ruby
         uses: actions/setup-ruby@v1
         with:
@@ -100,16 +97,6 @@ jobs:
           upload_url: ${{ steps.envirorment-variables.outputs.PUSH_PATH }}
           asset_path: ${{ steps.envirorment-variables.outputs.BUNDLE }}
           asset_name: app.aab
-          asset_content_type: application/zip
-
-      - name: Upload apk
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.envirorment-variables.outputs.PUSH_PATH }}
-          asset_path: ${{ steps.envirorment-variables.outputs.APK }}
-          asset_name: app.apk
           asset_content_type: application/zip
 
       - name: Release to Google Play (release)
