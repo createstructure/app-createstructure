@@ -86,7 +86,6 @@ jobs:
         run: |
           echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/debian-createstructure/releases/latest | jq -r '.upload_url')"
           echo "::set-output name=BUNDLE::build/app/outputs/bundle/release/app-release.aab"
-          echo "::set-output name=APK::build/app/outputs/apk/release/app-release.apk"
         id: envirorment-variables
 
       - name: Upload bundle
