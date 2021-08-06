@@ -34,7 +34,6 @@ dependencies:
   url_launcher: ^6.0.9
   intl: ^0.17.0
   flutter_phoenix: ^1.0.0
-  build_runner: ^2.1.0
   flutter:
     sdk: flutter
   flutter_localizations:
