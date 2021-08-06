@@ -58,5 +58,12 @@
     "insert": "Insert: ",
     "insertLong": "Insert here",
     "changeUsername": "Change Username",
-    "changeToken": "Change Token"
+    "changeToken": "Change Token",
+    "languages": "Languages",
+    "languagesLong": "Change language",
+    "save": "Save",
+    "en": "English",
+    "it": "Italian",
+    "languagesDefault": "System language",
+    "flutter_phoenix": "flutter_phoenix"
 }

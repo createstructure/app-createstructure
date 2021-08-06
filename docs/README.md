@@ -8,8 +8,6 @@ Repo where there is the mobile application to use createstructure
  - Android studio
  - Flutter
  - Flutter dependencies (flutter get)
- 
-## Directories structure
 
 ---
 Made by Castellani Davide 

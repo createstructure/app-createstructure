@@ -4,8 +4,6 @@ import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:stacked/stacked.dart';
 
@@ -61,13 +59,13 @@ class HomeViewModel extends MultipleFutureViewModel {
 
     var r = json.decode(response.body);
 
-    Fluttertoast.showToast(
+    /*Fluttertoast.showToast(
       msg: (r["message"] == "error"
           ? AppLocalizations.of(context)!.error + r["error"]
           : r["message"]),
       gravity: ToastGravity.CENTER,
       toastLength: Toast.LENGTH_LONG,
-    );
+    );*/
     debugPrint(_getBody(answers));
     print("${response.statusCode}");
     print("${response.body}");

@@ -70,6 +70,19 @@ class _SettingsState extends State<Settings> {
                       },
                     ),
                   ]),
+              SettingsSection(
+                  title: AppLocalizations.of(context)!.languages,
+                  titlePadding: EdgeInsets.all(20),
+                  tiles: [
+                    SettingsTile(
+                      title: AppLocalizations.of(context)!.languages,
+                      subtitle: AppLocalizations.of(context)!.languagesLong,
+                      leading: Icon(Icons.language),
+                      onPressed: (BuildContext context) {
+                        viewModel.changeLanguage(context);
+                      },
+                    ),
+                  ]),
             ],
           ),
         );
