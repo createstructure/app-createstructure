@@ -83,6 +83,8 @@ class _CredentialsState extends State<Credentials> {
                                 .flutter_native_splash),
                             Responsable(
                                 AppLocalizations.of(context)!.fluttertoast),
+                            Responsable(AppLocalizations.of(context)!
+                                .introduction_screen),
                             Responsable(
                                 AppLocalizations.of(context)!.url_launcher),
                           ]),

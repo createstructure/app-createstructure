@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SettingsData {
   String _username = "";
   String _token = "";
+  bool _tutorial = false;
 
   SettingsData() {}
 
@@ -16,7 +17,10 @@ class SettingsData {
           SettingsData.fromJson(json.decode(prefs.getString("settings")));
       _username = tmp._username;
       _token = tmp._token;
+      _tutorial = tmp._tutorial;
+      print("Settings loaded: " + toJson().toString());
     } catch (e) {
+      print("No saved settings");
       _username = _token = "";
     }
   }
@@ -29,11 +33,13 @@ class SettingsData {
 
   SettingsData.fromJson(Map<String, dynamic> json)
       : _username = json['username'],
-        _token = json['token'];
+        _token = json['token'],
+        _tutorial = json['tutorial'];
 
   Map<String, dynamic> toJson() => {
         'username': _username,
         'token': _token,
+        'tutorial': _tutorial,
       };
 
   String get username => _username;
@@ -42,14 +48,15 @@ class SettingsData {
     _username = value;
   }
 
-  @override
-  String toString() {
-    return 'SettingsData{_username: $_username, _token: $_token}';
-  }
-
   String get token => _token;
 
   set token(String value) {
     _token = value;
+  }
+
+  bool get tutorial => _tutorial;
+
+  set tutorial(bool value) {
+    _tutorial = value;
   }
 }

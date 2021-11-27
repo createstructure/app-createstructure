@@ -70,6 +70,27 @@ class HomeViewModel extends MultipleFutureViewModel {
     print("${response.statusCode}");
     print("${response.body}");
   }
+/*
+  String getUsername() {
+    _settingsData.loadData();
+    print("Username: " + _settingsData.username);
+    return _settingsData.username;
+  }
+
+  String getToken() {
+    _settingsData.loadData();
+    print("Token: " + _settingsData.token);
+    return _settingsData.token;
+  }
+*/
+
+  void checkTutorial(BuildContext context) {
+    if (_settingsData.tutorial) {
+      print("Tutorial done");
+    } else {
+      print("tutorial to do");
+    }
+  }
 
   Future<String> defaultFunction() async {
     return "";

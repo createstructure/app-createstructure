@@ -1,6 +1,6 @@
-import 'package:createstructure/Credentials.dart';
-import 'package:createstructure/Settings.dart';
 import 'package:createstructure/model/Answers.dart';
+import 'package:createstructure/view/Credentials.dart';
+import 'package:createstructure/view/Settings.dart';
 import 'package:createstructure/viewmodel/HomeViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +24,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, viewModel, child) {
+        viewModel.checkTutorial(context);
         return Scaffold(
-            appBar: AppBar(
-              title: Text(AppLocalizations.of(context)!.createstructure),
-              leading: Icon(Icons.home),
-              actions: <Widget>[
-                /*Padding(
+          appBar: AppBar(
+            title: Text(AppLocalizations.of(context)!.createstructure),
+            leading: Icon(Icons.home),
+            actions: <Widget>[
+              /*Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: IconButton(
                     icon: Icon(Icons.source_outlined),
@@ -37,32 +38,30 @@ class _HomeState extends State<Home> {
                         "https://github.com/createstructure/app-createstructure"),
                   ),
                 ),*/
-                Padding(
-                  padding: EdgeInsets.only(right: 20.0),
-                  child: IconButton(
-                    icon: Icon(Icons.info),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Credentials()));
-                    },
-                  ),
+              Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: IconButton(
+                  icon: Icon(Icons.info),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Credentials()));
+                  },
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 20.0),
-                  child: IconButton(
-                    icon: Icon(Icons.settings),
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Settings()));
-                    },
-                  ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Settings()));
+                  },
                 ),
-              ],
-            ),
-            body: SingleChildScrollView(
-                child: Form(
+              ),
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Form(
               key: _formKey,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -172,7 +171,9 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-            )));
+            ),
+          ),
+        );
       },
       viewModelBuilder: () => HomeViewModel(),
       onModelReady: (viewModel) async {},

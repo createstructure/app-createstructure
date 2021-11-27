@@ -62,5 +62,12 @@
     "en": "Inglese",
     "it": "Italiano",
     "languagesDefault": "Linguaggio di sistema",
-    "flutter_phoenix": "flutter_phoenix"
+    "flutter_phoenix": "flutter_phoenix",
+    "introduction_screen": "introduction_screen",
+    "tutorial": "Tutorial",
+    "logo": "https://raw.githubusercontent.com/createstructure/createstructure/main/docs/createstructure.png",
+    "done": "Finito",
+    "tutorial_page_1_title" : "Test",
+    "tutorial_page_1_description" : "Test descr",
+    "tutorial_page_1_img" : "https://raw.githubusercontent.com/createstructure/createstructure/main/docs/createstructure.png"
 }
