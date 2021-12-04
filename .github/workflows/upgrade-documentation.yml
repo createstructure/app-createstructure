@@ -43,10 +43,10 @@ jobs:
           EOF
       - name: CHANGELOG file
         run: |
-          cp repo/debian/changelog wiki/
+          cp repo/docs/CHANGELOG.md wiki/
           cd wiki
-          sed -i 's/Changelog/:octocat: Changelog :octocat:/g' changelog
-          sed -i 's/# /## /g' changelog
+          sed -i 's/Changelog/:octocat: Changelog :octocat:/g' CHANGELOG.md
+          sed -i 's/# /## /g' CHANGELOG.md
       - name: Directory structure file
         run: |
           cd wiki
