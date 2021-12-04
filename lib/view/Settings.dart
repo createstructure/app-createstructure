@@ -100,6 +100,7 @@ class _SettingsState extends State<Settings> {
                       SettingsData settingsData = SettingsData();
                       await settingsData.loadData();
                       settingsData.tutorial = false;
+                      print(settingsData);
                       await settingsData.saveData();
                       await prefs.setBool('refresh', true);
                       await Phoenix.rebirth(context);

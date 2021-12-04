@@ -112,6 +112,9 @@ class TutorialViewModel extends MultipleFutureViewModel {
     await prefs.setBool('refresh', true);
     print(AppLocalizations.of(_context!)!.done);
     SettingsData settingsData = SettingsData();
+    await settingsData.loadData();
+    print("Finished tutorial");
+    print(settingsData);
     settingsData.tutorial = true;
     await settingsData.saveDataContext(_context!);
   }
