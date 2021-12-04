@@ -41,16 +41,16 @@ class _CredentialsState extends State<Credentials> {
                     title: AppLocalizations.of(context)!.developers,
                     roles: [
                       Role(
-                          name: AppLocalizations.of(context)!.appDevelopers,
+                          name: AppLocalizations.of(context)!.app_developers,
                           crew: [
                             Responsable(
-                                AppLocalizations.of(context)!.castellanidavide)
+                                AppLocalizations.of(context)!.castellani_davide)
                           ]),
                       Role(
-                          name: AppLocalizations.of(context)!.coreDevelopers,
+                          name: AppLocalizations.of(context)!.core_developers,
                           crew: [
                             Responsable(
-                                AppLocalizations.of(context)!.castellanidavide)
+                                AppLocalizations.of(context)!.castellani_davide)
                           ]),
                     ]),
                 Section(
@@ -62,8 +62,8 @@ class _CredentialsState extends State<Credentials> {
                             Responsable(AppLocalizations.of(context)!.flutter),
                           ]),
                       Role(
-                          name:
-                              AppLocalizations.of(context)!.flutterDependencies,
+                          name: AppLocalizations.of(context)!
+                              .flutter_dependencies,
                           crew: [
                             Responsable(
                                 AppLocalizations.of(context)!.settings_ui),
@@ -89,19 +89,23 @@ class _CredentialsState extends State<Credentials> {
                                 AppLocalizations.of(context)!.url_launcher),
                           ]),
                     ]),
-                Section(title: AppLocalizations.of(context)!.toolsUsed, roles: [
-                  Role(
-                      name: AppLocalizations.of(context)!.createApplication,
-                      crew: [
-                        Responsable(AppLocalizations.of(context)!.androidStudio)
-                      ]),
-                  Role(
-                      name: AppLocalizations.of(context)!.storeApplication,
-                      crew: [
-                        Responsable(AppLocalizations.of(context)!.git),
-                        Responsable(AppLocalizations.of(context)!.github),
-                      ]),
-                ]),
+                Section(
+                    title: AppLocalizations.of(context)!.tools_used,
+                    roles: [
+                      Role(
+                          name:
+                              AppLocalizations.of(context)!.create_application,
+                          crew: [
+                            Responsable(
+                                AppLocalizations.of(context)!.android_studio)
+                          ]),
+                      Role(
+                          name: AppLocalizations.of(context)!.store_application,
+                          crew: [
+                            Responsable(AppLocalizations.of(context)!.git),
+                            Responsable(AppLocalizations.of(context)!.github),
+                          ]),
+                    ]),
               ],
               backgroundColor: Colors.white,
               titleTextStyle: TextStyle(

@@ -19,22 +19,18 @@ class _TutorialState extends State<Tutorial> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<TutorialViewModel>.reactive(
       builder: (context, viewModel, child) {
+        viewModel.context = context;
         return Scaffold(
-          /*appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.tutorial),
-            leading: Icon(Icons.book),
-          ),*/
           body: IntroductionScreen(
             pages: viewModel.getPages(context),
             done: Text(AppLocalizations.of(context)!.done),
-            onDone: () {
-              print(AppLocalizations.of(context)!.done);
-            },
+            onDone: () async => viewModel.onDone(),
             next: Icon(Icons.arrow_forward),
             showNextButton: true,
             showDoneButton: true,
             isTopSafeArea: true,
             isBottomSafeArea: true,
+            dotsFlex: 2, // Support up to 9 tutorial pages
           ),
         );
       },

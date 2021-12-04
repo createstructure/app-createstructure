@@ -1,4 +1,3 @@
-import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/view/Credentials.dart';
 import 'package:createstructure/view/Settings.dart';
 import 'package:createstructure/viewmodel/HomeViewModel.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   //MyHomePage({Key key, this.title}) : super(key: key);
@@ -17,29 +17,29 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _formKey = GlobalKey<FormState>();
-  Answers _answers = new Answers();
-
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, viewModel, child) {
-        viewModel.checkTutorial(context);
+        viewModel.context = context;
         return Scaffold(
           appBar: AppBar(
             title: Text(AppLocalizations.of(context)!.createstructure),
             leading: Icon(Icons.home),
             actions: <Widget>[
-              /*Padding(
-                  padding: EdgeInsets.only(right: 20.0),
-                  child: IconButton(
-                    icon: Icon(Icons.source_outlined),
-                    onPressed: () => launch(
-                        "https://github.com/createstructure/app-createstructure"),
-                  ),
-                ),*/
               Padding(
-                padding: EdgeInsets.only(right: 20.0),
+                padding: EdgeInsets.only(right: 10.0),
+                child: IconButton(
+                  icon: Image.asset(
+                    "assets/images/GitHub.png",
+                    height: 24,
+                    width: 24,
+                  ),
+                  onPressed: () => launch("https://createstructure.github.io/"),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: 10.0),
                 child: IconButton(
                   icon: Icon(Icons.info),
                   onPressed: () {
@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(right: 20.0),
+                padding: EdgeInsets.only(right: 10.0),
                 child: IconButton(
                   icon: Icon(Icons.settings),
                   onPressed: () {
@@ -61,116 +61,36 @@ class _HomeState extends State<Home> {
             ],
           ),
           body: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.format_quote),
-                          hintText: AppLocalizations.of(context)!.q1short,
-                          labelText: AppLocalizations.of(context)!.q1long),
-                      onChanged: (String value) {
-                        _answers.name = value;
-                      },
+            child: Stepper(
+              type: StepperType.vertical,
+              currentStep: viewModel.index,
+              steps: viewModel.stepList(),
+              onStepContinue: () => setState(() {
+                viewModel.onStepContinue();
+              }),
+              onStepCancel: () => setState(() {
+                viewModel.onStepCancel();
+              }),
+              onStepTapped: (int index) => setState(() {
+                viewModel.onStepTapped(index);
+              }),
+              controlsBuilder: (BuildContext context,
+                  {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+                return Row(
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: onStepContinue,
+                      child: Text(viewModel.last()
+                          ? AppLocalizations.of(context)!.submit
+                          : AppLocalizations.of(context)!.continue_),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.copy),
-                          hintText: AppLocalizations.of(context)!.q2short,
-                          labelText: AppLocalizations.of(context)!.q2long),
-                      onChanged: (String value) {
-                        _answers.template = value;
-                      },
+                    TextButton(
+                      onPressed: onStepCancel,
+                      child: Text(AppLocalizations.of(context)!.reset),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.description),
-                          hintText: AppLocalizations.of(context)!.q3short,
-                          labelText: AppLocalizations.of(context)!.q3long),
-                      onChanged: (String value) {
-                        _answers.descr = value;
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.navigate_before),
-                          hintText: AppLocalizations.of(context)!.q4short,
-                          labelText: AppLocalizations.of(context)!.q4long),
-                      onChanged: (String value) {
-                        _answers.prefix = value;
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.business),
-                          hintText: AppLocalizations.of(context)!.q5short,
-                          labelText: AppLocalizations.of(context)!.q5long),
-                      onChanged: (String value) {
-                        _answers.org = value;
-                        _answers.isOrg = value != null && value != "";
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.group),
-                          hintText: AppLocalizations.of(context)!.q6short,
-                          labelText: AppLocalizations.of(context)!.q6long),
-                      onChanged: (String value) {
-                        _answers.team = value;
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          icon: Icon(Icons.public),
-                          hintText: AppLocalizations.of(context)!.q7short,
-                          labelText: AppLocalizations.of(context)!.q7long),
-                      onChanged: (String value) {
-                        _answers.private =
-                            !(["N", "No", "n", "no"].contains(value));
-                      },
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          _formKey.currentState?.reset();
-                        },
-                        child: Text(AppLocalizations.of(context)!.reset),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          viewModel.sendData(_answers, context);
-                        },
-                        child: Text(AppLocalizations.of(context)!.create),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                  ],
+                );
+              },
             ),
           ),
         );
