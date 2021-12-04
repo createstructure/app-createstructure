@@ -1,0 +1,166 @@
+name: Upgrade documentation (Wiki + README.md)
+on: [workflow_dispatch, push]
+
+jobs:
+  upgrade-documentation:
+    runs-on: ubuntu-latest
+    environment:
+      name: documentation
+    steps:
+      - name: Initial setup
+        run: |
+          sudo apt update -y
+          sudo pip install BeautifulSoup4
+          git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git wiki
+          git clone --recurse-submodules --depth 1 https://$.GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git -b $(echo ${GITHUB_REF#refs/heads/}) repo
+          rm -f wiki/*.md
+      - name: Home file
+        run: |
+          cd wiki
+          python3 << EOF
+          import urllib.request
+          import json
+          from bs4 import BeautifulSoup
+          def get_json():
+            """ Returns the json with description
+            """
+            return json.loads(urllib.request.urlopen("$GITHUB_API_URL/repos/$GITHUB_REPOSITORY").read().decode())
+          def get_social_img():
+            """ Get social image
+            """
+            soup = BeautifulSoup(urllib.request.urlopen("$GITHUB_SERVER_URL/$GITHUB_REPOSITORY").read().decode(), 'html.parser')
+            return soup.find("meta", property="og:image")["content"]
+          def get_content():
+            """ Returns the file content
+            """
+            social_img = get_social_img()
+            file_content = "## :octocat: Description :octocat:\n"
+            file_content += get_json()["description"].replace(". ", ".\n\n").replace("wiki", "[wiki]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/wiki)") + "\n"
+            file_content += f"![$GITHUB_REPOSITORY]({social_img})\n"
+            return file_content
+          if __name__ == "__main__":
+            open("Home.md", "w+").write(str(get_content()))
+          EOF
+      - name: CHANGELOG file
+        run: |
+          cp repo/debian/changelog wiki/
+          cd wiki
+          sed -i 's/Changelog/:octocat: Changelog :octocat:/g' changelog
+          sed -i 's/# /## /g' changelog
+      - name: Directory structure file
+        run: |
+          cd wiki
+          sudo apt install tree -y
+          echo "## :octocat: Directory structure :octocat:" > Directory-Structure.md
+          echo "" >> Directory-Structure.md
+          echo "\`\`\`" >> Directory-Structure.md
+          tree ../repo >> Directory-Structure.md
+          echo "\`\`\`" >> Directory-Structure.md
+          sed -i 's/├── debian/├── debian # debian control code/g' Directory-Structure.md
+          sed -i 's/bin/bin # source code/g' Directory-Structure.md
+          sed -i 's/docs/docs # documentation/g' Directory-Structure.md
+      - name: Rebuild the debian-createstructure locally
+        run: |
+          cd wiki
+          echo "## :octocat: Rebuild the app-createstructure locally :octocat:" >> Rebuild-the-app-createstructure-locally.md
+          echo "Install the app-createstructure locally permits you to do some debug and try new configurations." >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "### Steps:" >> Rebuild-the-app-createstructure-locally.md
+          echo "- [:octocat: Rebuild the app-createstructure locally :octocat:](#octocat-rebuild-the-debian-createstructure-locally-octocat)" >> Rebuild-the-app-createstructure-locally.md
+          echo "  - [Steps:](#steps)" >> Rebuild-the-app-createstructure-locally.md
+          echo "  - [1. Install VirtualBox on the PC](#1-install-virtualbox-on-the-pc)" >> Rebuild-the-app-createstructure-locally.md
+          echo "  - [2. Install Ubuntu](#2-install-ubuntu)" >> Rebuild-the-app-createstructure-locally.md
+          echo "  - [3. Install dependencies](#3-install-dependencies)" >> Rebuild-the-app-createstructure-locally.md
+          echo "  - [4. Compile](#4-compile)" >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "### 1. Install VirtualBox on the PC" >> Rebuild-the-app-createstructure-locally.md
+          echo "For installation we suggest VirtualBox, a tool that allows you to create one or more virtual machines :computer:." >> Rebuild-the-app-createstructure-locally.md
+          echo "If any of these crashes, in any case, your PC will not lose data, at most you will have to restart it :smile:." >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "To install VirtualBox on your PC you need to:" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Get in into the UEFI" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Enable the function which name is like \"Virtualization\" (for each UEFI this step is different but similar)" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Save the configuration and restart the PC" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Go to the [VirtualBox website](https://www.virtualbox.org/)" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Press \"Download\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Run the downloaded file" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Follow the installation steps" >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "### 2. Install Ubuntu" >> Rebuild-the-app-createstructure-locally.md
+          echo "As the OS we suggest to use Ubuntu, because it is lightweight (for RAM and CPU) and it's free." >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "To install Ubuntu on VirtualBox you need to:" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Download the last LTS version of Ubuntu by the following link: [https://ubuntu.com/download/desktop](https://ubuntu.com/download/desktop)" >> Rebuild-the-app-createstructure-locally.md
+          echo "> Now you can continue with the other steps during the download" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Open VirtualBox" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Press \"New\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Compile the form" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - As name put \"rest-createstructure\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - As Type: \"Linux\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - As version: \"Ubuntu (64-bit)\" or \"Ubuntu (32-bit)\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - Press \"Next >\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Set the RAM to use for the VirtualMachine, at most half of local RAM and press \"Next >\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Leave \"Create a virtual hard disk now\" and press \"Create\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Leave \"VDI ...\" and press \"Next >\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Leave \"Dynamically allocated\" and press \"Next >\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Change the hard disk memory, we suggest 16GB and press \"Create\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "> Make sure that Ubuntu download is finished before to continue" >> Rebuild-the-app-createstructure-locally.md
+          echo "- On the VirtualBox console, selecting the created VM, press \"Start\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Select as start-up disk Ubuntu, already downloaded" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - Press the folder icon" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - Press \"Add\", in the top menu" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - Select the Ubuntu iso, the file will have a structure like \"ubuntu-version-other_info.iso\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "    - Press \"Choose\" and \"Start\"" >> Rebuild-the-app-createstructure-locally.md
+          echo "- Follow the install steps (the installation needs some minutes)" >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "### 3. Install dependencies" >> Rebuild-the-app-createstructure-locally.md
+          echo "Now you have to install building dependencies." >> Rebuild-the-app-createstructure-locally.md
+          echo "To install Dependes on the Virtual Machine you need to follow [this instructions](https://docs.flutter.dev/get-started/install)" >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+          echo "### 4. Compile" >> Rebuild-the-app-createstructure-locally.md
+          echo "To compile and use the application you can create a virtual phone on Android Studio and run on it the application." >> Rebuild-the-app-createstructure-locally.md
+          echo "" >> Rebuild-the-app-createstructure-locally.md
+      - name: _Footer file
+        run: |
+          cd wiki
+          echo "---" > _Footer.md
+          echo "Made w/ :heart: by Castellani Davide" >> _Footer.md
+          echo "" >> _Footer.md
+          echo "If you want to contribute you can start with:" >> _Footer.md
+          echo "- [Discussion]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/discussions)" >> _Footer.md
+          echo "- [Issue]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/issues/new)" >> _Footer.md
+      - name: _Header file
+        run: |
+          cd wiki
+          echo "# debian-createstructure" > _Header.md
+          echo "[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$(echo ${GITHUB_REF#refs/heads/})/docs/LICENSE)" >> _Header.md
+          echo "![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)" >> _Header.md
+          echo "![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) " >> _Header.md
+          echo "[![On GitHub](https://img.shields.io/badge/on%20GitHub-True-green?style=flat&logo=github)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$(echo ${GITHUB_REF#refs/heads/}))" >> _Header.md
+          echo "" >> _Header.md
+      - name: Recreate README.md
+        run: |
+          cat wiki/_Header.md > repo/docs/README.md
+          cat wiki/Home.md > repo/docs/README.md
+          cat wiki/Directory-Structure.md >> repo/docs/README.md
+          cat wiki/changelog >> repo/docs/README.md
+          cat wiki/Rebuild-the-app-createstructure-locally.md >> repo/docs/README.md
+          cat wiki/_Footer.md >> repo/docs/README.md
+      - name: git add & commit & upload wiki
+        continue-on-error: true
+        run: |
+          cd wiki
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "help@castellanidavide.it"
+          git add *
+          git commit -m "Upgrade by automatic action"
+          git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.wiki.git
+      - name: git add & commit & upload repo
+        continue-on-error: true
+        run: |
+          cd repo
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "help@castellanidavide.it"
+          git add *
+          git commit -m "Upgrade by automatic action"
+          git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git
