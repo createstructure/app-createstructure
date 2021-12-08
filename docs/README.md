@@ -1,6 +1,6 @@
 ## :octocat: Description :octocat:
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/916decf67b4e6097f8442e0faa2f518585aa98396f6314fd2373ee4cc4b6bf6d/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/f4c4090ca30cdd10d02102d88530d7a55fd08410fe735d047eabb85c082c86df/createstructure/app-createstructure)
 ## :octocat: Directory structure :octocat:
 
 ```
