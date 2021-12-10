@@ -77,15 +77,15 @@ class _HomeState extends State<Home> {
               controlsBuilder: (BuildContext context,
                   {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
                 return Row(
-                  children: <Widget>[
+                  children: [
                     TextButton(
-                      onPressed: onStepContinue,
+                      onPressed: onStepContinue!,
                       child: Text(viewModel.last()
                           ? AppLocalizations.of(context)!.submit
                           : AppLocalizations.of(context)!.continue_),
                     ),
                     TextButton(
-                      onPressed: onStepCancel,
+                      onPressed: onStepCancel!,
                       child: Text(AppLocalizations.of(context)!.reset),
                     ),
                   ],
