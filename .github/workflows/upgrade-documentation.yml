@@ -136,16 +136,16 @@ jobs:
           echo "[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/$(echo ${GITHUB_REF#refs/heads/})/docs/LICENSE)" >> _Header.md
           echo "![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)" >> _Header.md
           echo "![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) " >> _Header.md
-          echo "[![On GitHub](https://img.shields.io/badge/on%20GitHub-True-green?style=flat&logo=github)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$(echo ${GITHUB_REF#refs/heads/}))" >> _Header.md
           echo "" >> _Header.md
       - name: Recreate README.md
         run: |
           cat wiki/_Header.md > repo/docs/README.md
-          cat wiki/Home.md > repo/docs/README.md
+          cat wiki/Home.md >> repo/docs/README.md
           cat wiki/Directory-Structure.md >> repo/docs/README.md
           cat wiki/CHANGELOG.md >> repo/docs/README.md
           cat wiki/Rebuild-the-app-createstructure-locally.md >> repo/docs/README.md
           cat wiki/_Footer.md >> repo/docs/README.md
+          sed -i 's/:octocat://g' repo/docs/README.md
       - name: git add & commit & upload wiki
         continue-on-error: true
         run: |
