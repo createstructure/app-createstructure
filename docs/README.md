@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/9b7b78895c164d62cf42066edfe8c31febd7fc6e037bad9f4a2812207534eb41/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/75766eba7af17ad86044996a00774e91e8381d466a4b6a47baad9372ae969e99/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
