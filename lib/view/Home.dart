@@ -74,7 +74,7 @@ class _HomeState extends State<Home> {
               onStepTapped: (int index) => setState(() {
                 viewModel.onStepTapped(index);
               }),
-              /*controlsBuilder: (BuildContext context2,
+              controlsBuilder: (BuildContext context2,
                   {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
                 return Row(
                   children: [
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 );
-              },*/
+              },
             ),
           ),
         );
