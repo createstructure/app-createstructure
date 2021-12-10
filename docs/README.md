@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/c813b26254cb0be40efeb5616afd2e71a37c9c962d52bfeab255318d5f97e1b5/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/7ebd141a0a28db8d20fbd6db11672babdb115f8729f7e15c512caa3b33ceedf5/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -164,8 +164,16 @@ Mobile app to use createstructure service
 Repo where there is the mobile application to use createstructure
 
 - [ Changelog ](#changelog)
+  - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+### [10.01.01] - 2021-12-10
+- [v10-beta (app-createstructure)](https://github.com/createstructure/app-createstructure/issues/1)
+  - [Adapt mobile application to the new REST API](https://github.com/createstructure/app-createstructure/issues/2)
+  - [Make it easier for the consumer the login management](https://github.com/createstructure/app-createstructure/issues/3)
+  - [Make the application more beautiful](https://github.com/createstructure/app-createstructure/issues/4)
+  - [Add a tutorial](https://github.com/createstructure/app-createstructure/issues/5)
 
 ### [09.01.01] - 2021-08-06
 #### Added
