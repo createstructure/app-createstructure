@@ -1,6 +1,8 @@
 import 'dart:io';
 
-import 'package:createstructure/Home.dart';
+import 'package:createstructure/model/SettingsData.dart';
+import 'package:createstructure/view/Home.dart';
+import 'package:createstructure/view/Tutorial.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -16,25 +18,51 @@ void main() {
 
 class MyApp extends StatelessWidget {
   Locale _locale = Locale('en');
+  SettingsData _settingsData = SettingsData();
+  static bool _forceTutorial = false; // Needs complete restart of the app
 
   _syncLocale(BuildContext context) async {
     var prefs = await SharedPreferences.getInstance();
-    if (prefs.getKeys().contains('refresh')) {
-      prefs.remove('refresh');
-      Phoenix.rebirth(context);
-    }
     if (prefs.getKeys().contains('language_code')) {
-      _locale = new Locale(prefs.getString('language_code'));
+      _locale = new Locale(prefs.getString('language_code') ?? 'en');
     } else {
       _locale = new Locale(Platform.localeName);
     }
     debugPrint(_locale.toString());
     await _locale;
+    return _locale;
+  }
+
+  _loadSettings(BuildContext context) async {
+    await _settingsData.loadData();
+    return _settingsData.loaded;
+  }
+
+  _refresh(BuildContext context) async {
+    var prefs = await SharedPreferences.getInstance();
+    if (prefs.getKeys().contains('refresh')) {
+      print("Refreshing...");
+      await prefs.remove('refresh');
+      await Phoenix.rebirth(context);
+    }
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
-    _syncLocale(context);
+    _loadSettings(context).then((loaded) {
+      print("Settings loaded");
+      return loaded;
+    });
+    _syncLocale(context).then((locale) {
+      print("Location loaded");
+      return locale;
+    });
+    _refresh(context).then((result) {
+      print("Refresh loaded");
+      return result;
+    });
+
     return MaterialApp(
       title: 'createstructure',
       debugShowCheckedModeBanner: false,
@@ -42,7 +70,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      home: (_forceTutorial || !_settingsData.tutorial ? Tutorial() : Home()),
       localizationsDelegates: [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

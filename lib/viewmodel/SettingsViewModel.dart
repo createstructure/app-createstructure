@@ -55,7 +55,7 @@ class SettingsViewModel extends MultipleFutureViewModel {
                       child: TextFormField(
                         decoration: InputDecoration(
                             icon: Icon(Icons.person),
-                            hintText: AppLocalizations.of(context)!.insertLong,
+                            hintText: AppLocalizations.of(context)!.insert_long,
                             labelText: AppLocalizations.of(context)!.insert),
                         onChanged: (String value) {
                           switch (settingsType) {
@@ -64,6 +64,8 @@ class SettingsViewModel extends MultipleFutureViewModel {
                               break;
                             case SettingsType.TOKEN:
                               _settingsData.token = value;
+                              break;
+                            default:
                               break;
                           }
                           _settingsData.saveData();
@@ -94,13 +96,13 @@ class SettingsViewModel extends MultipleFutureViewModel {
   }
 
   changeUsername(BuildContext context) async {
-    change(context, AppLocalizations.of(context)!.changeUsername,
+    change(context, AppLocalizations.of(context)!.change_username,
         SettingsType.USERNAME);
   }
 
   changeToken(BuildContext context) {
-    change(
-        context, AppLocalizations.of(context)!.changeToken, SettingsType.TOKEN);
+    change(context, AppLocalizations.of(context)!.change_token,
+        SettingsType.TOKEN);
   }
 
   changeLanguage(BuildContext context) {
@@ -146,7 +148,7 @@ class SettingsViewModel extends MultipleFutureViewModel {
                             Column(
                               children: [
                                 Text(AppLocalizations.of(context)!
-                                    .languagesDefault),
+                                    .languages_default),
                               ],
                             )
                           ],

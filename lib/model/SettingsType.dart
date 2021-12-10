@@ -1,1 +1,1 @@
-enum SettingsType { USERNAME, TOKEN }
+enum SettingsType { USERNAME, TOKEN, TUTORIAL }
