@@ -1,7 +1,12 @@
-## :octocat: Description :octocat:
+# debian-createstructure
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/app-createstructure/blob/v10-beta/docs/LICENSE)
+![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
+![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
+
+##  Description 
 Mobile app to use createstructure service
 ![createstructure/app-createstructure](https://opengraph.githubassets.com/f4c4090ca30cdd10d02102d88530d7a55fd08410fe735d047eabb85c082c86df/createstructure/app-createstructure)
-## :octocat: Directory structure :octocat:
+##  Directory structure 
 
 ```
 ../repo
@@ -155,21 +160,21 @@ Mobile app to use createstructure service
 
 54 directories, 93 files
 ```
-## :octocat: Changelog :octocat:
+##  Changelog 
 Repo where there is the mobile application to use createstructure
 
-- [:octocat: Changelog :octocat:](#changelog)
+- [ Changelog ](#changelog)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
 
 ### [09.01.01] - 2021-08-06
 #### Added
 - Initial version for this repo
-## :octocat: Rebuild the app-createstructure locally :octocat:
+##  Rebuild the app-createstructure locally 
 Install the app-createstructure locally permits you to do some debug and try new configurations.
 
 ### Steps:
-- [:octocat: Rebuild the app-createstructure locally :octocat:](#octocat-rebuild-the-debian-createstructure-locally-octocat)
+- [ Rebuild the app-createstructure locally ](#octocat-rebuild-the-debian-createstructure-locally-octocat)
   - [Steps:](#steps)
   - [1. Install VirtualBox on the PC](#1-install-virtualbox-on-the-pc)
   - [2. Install Ubuntu](#2-install-ubuntu)
