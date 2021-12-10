@@ -74,18 +74,18 @@ class _HomeState extends State<Home> {
               onStepTapped: (int index) => setState(() {
                 viewModel.onStepTapped(index);
               }),
-              controlsBuilder: (BuildContext context,
+              controlsBuilder: (BuildContext context2,
                   {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
                 return Row(
                   children: [
                     TextButton(
-                      onPressed: onStepContinue!,
+                      onPressed: onStepContinue,
                       child: Text(viewModel.last()
                           ? AppLocalizations.of(context)!.submit
                           : AppLocalizations.of(context)!.continue_),
                     ),
                     TextButton(
-                      onPressed: onStepCancel!,
+                      onPressed: onStepCancel,
                       child: Text(AppLocalizations.of(context)!.reset),
                     ),
                   ],
