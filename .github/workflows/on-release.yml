@@ -62,6 +62,9 @@ jobs:
           echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
 
+      - name: Build Android App Apk
+        run: flutter build apk --no-sound-null-safety
+
       - name: Build Android App Bundle
         run: flutter build appbundle --no-sound-null-safety
 
@@ -93,7 +96,18 @@ jobs:
         run: |
           echo "::set-output name=PUSH_PATH::$(curl -sL https://api.github.com/repos/createstructure/app-createstructure/releases/latest | jq -r '.upload_url')"
           echo "::set-output name=BUNDLE::build/app/outputs/bundle/release/app-release.aab"
+          echo "::set-output name=APK::build/app/outputs/apk/release/app-release.apk"
         id: envirorment-variables
+
+      - name: Upload apk
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.envirorment-variables.outputs.PUSH_PATH }}
+          asset_path: ${{ steps.envirorment-variables.outputs.APK }}
+          asset_name: app.apk
+          asset_content_type: application/zip
 
       - name: Upload bundle
         uses: actions/upload-release-asset@v1
