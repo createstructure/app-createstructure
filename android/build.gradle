@@ -29,7 +29,3 @@ subprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-android {
-    ndkVersion "21.1.6352462"
-}
