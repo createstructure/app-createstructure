@@ -39,6 +39,9 @@ class Answers {
       case "isOrg":
         isOrg = value;
         break;
+      case "team":
+        team = value;
+        break;
     }
   }
 
