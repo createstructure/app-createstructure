@@ -35,7 +35,7 @@ class HomeViewModel extends MultipleFutureViewModel {
                 ),
                 _getPadding(
                   Icons.description,
-                  "decr",
+                  "descr",
                   AppLocalizations.of(_context!)!.question_3_short,
                   AppLocalizations.of(_context!)!.question_3_long,
                 ),
@@ -162,6 +162,7 @@ class HomeViewModel extends MultipleFutureViewModel {
     if (_answers.descr != "") answers["descr"] = _answers.descr;
     if (_answers.prefix != "") answers["prefix"] = _answers.prefix;
     answers["private"] = _answers.private;
+    answers["isOrg"] = _answers.isOrg;
     if (_answers.isOrg) {
       answers["org"] = _answers.org;
       if (_answers.team != "") answers["team"] = _answers.team;
@@ -176,6 +177,7 @@ class HomeViewModel extends MultipleFutureViewModel {
     await init();
     String request = _getBody();
     if (request == "error") return;
+    print(request);
     final response = await http.post(
       Uri.parse("https://www.castellanidavide.it/other/createstructure/api/"),
       headers: {"Content-Type": "application/json"},
@@ -183,9 +185,12 @@ class HomeViewModel extends MultipleFutureViewModel {
     );
 
     var r = json.decode(response.body);
+    print(r.toString());
 
     if (r["code"] == 200) {
       message(AppLocalizations.of(_context!)!.code_200);
+    } else {
+      message(AppLocalizations.of(_context!)!.error + r["message"]);
     }
   }
 
