@@ -7,25 +7,23 @@ assignees: 'DavideC03'
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+# Describe the bug
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+# Describe the steps to reproduce the bug
+Steps to reproduce the problem. Ex.
+1. ...
+2. ...
+3. ...
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+# Describe the solution you'd like
+A clear and concise description of what you want to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+# Describe alternatives you've considered
+A clear and concise description of any alternative solutions or features you've considered.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. Linux]
- - Version [e.g. 22]
+# Additional context
+Add any other context or screenshots about the feature request here.
 
-**Additional context**
-Add any other context about the problem here.
+# Issue Author
+Your GitHub username (eg. @DavideC03)
