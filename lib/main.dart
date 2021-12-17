@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   Locale _locale = Locale('en');
   SettingsData _settingsData = SettingsData();
   static bool _forceTutorial = false; // Needs complete restart of the app
+  bool _refreshed = false;
 
   _syncLocale(BuildContext context) async {
     var prefs = await SharedPreferences.getInstance();
@@ -40,9 +41,10 @@ class MyApp extends StatelessWidget {
 
   _refresh(BuildContext context) async {
     var prefs = await SharedPreferences.getInstance();
-    if (prefs.getKeys().contains('refresh')) {
+    if (prefs.getKeys().contains('refresh') || !_refreshed) {
       print("Refreshing...");
       await prefs.remove('refresh');
+      _refreshed = true;
       await Phoenix.rebirth(context);
     }
     return true;
