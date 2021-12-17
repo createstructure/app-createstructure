@@ -106,7 +106,7 @@
     "tutorial_page_4_description" : "Il passo successivo è quello di abbonarsi al servizio createstructure, puoi scegliere l'abbonamento gratuito o a pagamento.\nIl collegamento veloce per farlo è:",
     "tutorial_page_4_img" : "https://raw.githubusercontent.com/createstructure/createstructure/main/docs/createstructure.png",
     "tutorial_page_4_title" : "Setup pt.2",
-    "tutorial_page_5_description" : "Il passaggio successivo consiste nel creare il token.\nQuesto token consente al servizio createstructure di configurare il repository per te.\nCrea il token dando il nome che desideri, il campo \"Scadenza\" personalizzato e concedi \"repo\", \"admin:org\" e \"user\". Alla fine copia negli appunti il token dato.\nAnche in questo caso c'è un collegamento veloce:",
+    "tutorial_page_5_description" : "Il passaggio successivo consiste nel creare il token.\nQuesto token consente al servizio createstructure di configurare il repository per te.\nCrea il token dando il nome che desideri, il campo \"Scadenza\" personalizzato e concedi \"repo\", \" workflow\", \"admin:org\" e \"user\". Alla fine copia negli appunti il token dato.\nAnche in questo caso c'è un collegamento veloce:",
     "tutorial_page_5_img" : "assets/images/token.png",
     "tutorial_page_5_title" : "Setup pt.3",
     "tutorial_page_6_description" : "Dopo questo tutorial in alto a destra vedrai ⚙️.\nFai quindi clic ed inseririsci il usename di GitHub ed il token copiato.",

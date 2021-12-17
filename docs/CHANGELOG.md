@@ -2,12 +2,16 @@
 Repo where there is the mobile application to use createstructure
 
 - [Changelog](#changelog)
+  - [[10.01.05] - 2021-12-17](#100105---2021-12-17)
   - [[10.01.04] - 2021-12-17](#100104---2021-12-17)
   - [[10.01.03] - 2021-12-12](#100103---2021-12-12)
   - [[10.01.02] - 2021-12-12](#100102---2021-12-12)
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+## [10.01.05] - 2021-12-17
+- Updated token tutorial
 
 ## [10.01.04] - 2021-12-17
 - [Tutorial BUG](https://github.com/createstructure/app-createstructure/issues/8)
