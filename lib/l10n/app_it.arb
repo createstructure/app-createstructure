@@ -1,6 +1,6 @@
 {
     "android_studio": "Android Studio",
-    "app_dependencies": "Dipendenze dell'app",
+    "appDependencies": "Dipendenze dell'app",
     "app_developers": "Programmatori dell'app",
     "ask": "Fai una richiesta di aiuto",
     "ask_long": "Chiedi per un aiuto alla createstructure\ncommunity e al team di createstructure\n(è necessario 'account GitHub).",
