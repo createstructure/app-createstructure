@@ -26,18 +26,26 @@ jobs:
       run: |
         cd wiki
         python3 << EOF
-        import urllib.request
+        import requests
         import json
         from bs4 import BeautifulSoup
+        def web_request(url):
+          """ Make a web request and return the response
+          """ 
+          return requests.get(url, auth=("$GITHUB_ACTOR", "${{ secrets.GITHUB_TOKEN }}")).text
         def get_json():
           """ Returns the json with description
           """
-          return json.loads(urllib.request.urlopen("$GITHUB_API_URL/repos/$GITHUB_REPOSITORY").read().decode())
+          return json.loads(web_request("$GITHUB_API_URL/repos/$GITHUB_REPOSITORY"))
         def get_social_img():
           """ Get social image
           """
-          soup = BeautifulSoup(urllib.request.urlopen("$GITHUB_SERVER_URL/$GITHUB_REPOSITORY").read().decode(), 'html.parser')
-          return soup.find("meta", property="og:image")["content"]
+          try:
+            soup = BeautifulSoup(web_request("$GITHUB_SERVER_URL/$GITHUB_REPOSITORY"), 'html.parser')
+            return soup.find("meta", property="og:image")["content"]
+          except:
+            print("Error getting social image")
+            return ""
         def get_content():
           """ Returns the file content
           """
@@ -47,7 +55,7 @@ jobs:
           file_content += f"![$GITHUB_REPOSITORY]({social_img})\n"
           return file_content
         if __name__ == "__main__":
-          open("Home.md", "w+").write(str(get_content()))
+          open("Home.md", "w+").write(str(get_content()))                    
         EOF
     - name: CHANGELOG file
       run: |
