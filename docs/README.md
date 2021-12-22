@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/9bda88096498224e6a310cefe7eb0ef845caf27cf7f8c8af34241b1b4113fe05/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/fa077b40f78e5fb4b8589cafcde84bdf8dde2f6f2fea2a3f732969c176f99863/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -147,18 +147,20 @@ Mobile app to use createstructure service
 │   │   ├── Credentials.dart
 │   │   ├── Home.dart
 │   │   ├── Settings.dart
+│   │   ├── Template.dart
 │   │   └── Tutorial.dart
 │   └── viewmodel
 │       ├── CredentialsViewModel.dart
 │       ├── HomeViewModel.dart
 │       ├── SettingsViewModel.dart
+│       ├── TemplateViewModel.dart
 │       └── TutorialViewModel.dart
 ├── pubspec.lock
 ├── pubspec.yaml
 └── test
     └── widget_test.dart
 
-54 directories, 93 files
+54 directories, 95 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
