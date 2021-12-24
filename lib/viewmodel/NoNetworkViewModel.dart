@@ -9,7 +9,7 @@ class NoNetworkViewModel extends MultipleFutureViewModel {
 
   set context(BuildContext value) {
     _context = value;
-    _networkCheck = NetworkCheck(_context);
+    _networkCheck = NetworkCheck(_context!);
   }
 
   void check() {
