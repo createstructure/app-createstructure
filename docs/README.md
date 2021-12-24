@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/fa077b40f78e5fb4b8589cafcde84bdf8dde2f6f2fea2a3f732969c176f99863/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/66c71535dcff7249941974b45245b94b1f762ce0fa97932555c2a0d53748faab/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -70,6 +70,7 @@ Mobile app to use createstructure service
 ├── assets
 │   └── images
 │       ├── GitHub.png
+│       ├── networkError.png
 │       ├── settings.png
 │       ├── token.png
 │       └── use.png
@@ -141,17 +142,20 @@ Mobile app to use createstructure service
 │   ├── main.dart
 │   ├── model
 │   │   ├── Answers.dart
+│   │   ├── NetworkCheck.dart
 │   │   ├── SettingsData.dart
 │   │   └── SettingsType.dart
 │   ├── view
 │   │   ├── Credentials.dart
 │   │   ├── Home.dart
+│   │   ├── NoNetwork.dart
 │   │   ├── Settings.dart
 │   │   ├── Template.dart
 │   │   └── Tutorial.dart
 │   └── viewmodel
 │       ├── CredentialsViewModel.dart
 │       ├── HomeViewModel.dart
+│       ├── NoNetworkViewModel.dart
 │       ├── SettingsViewModel.dart
 │       ├── TemplateViewModel.dart
 │       └── TutorialViewModel.dart
@@ -160,7 +164,7 @@ Mobile app to use createstructure service
 └── test
     └── widget_test.dart
 
-54 directories, 95 files
+54 directories, 99 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
