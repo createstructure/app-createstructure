@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:createstructure/model/Answers.dart';
+import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class HomeViewModel extends MultipleFutureViewModel {
   Map<String, TextEditingController> _textEditingControllers = {};
   SettingsData _settingsData = new SettingsData();
   Answers _answers = new Answers();
+  NetworkCheck? _networkCheck;
   int _index = 0;
   BuildContext? _context;
 
@@ -243,6 +245,8 @@ class HomeViewModel extends MultipleFutureViewModel {
   set context(BuildContext value) {
     _context = value;
     _answers.context = value;
+    _networkCheck = NetworkCheck(value);
+    _networkCheck!.checkNetwork();
   }
 
   Future<String> defaultFunction() async {
