@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/6532c2da59c44ed4c299111237830d3d0506d28353c8127843b1257e3afc7369/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/5832bf7e87d3274fc088df879ae6b1d9755085c94c621511d18da7935cc29e6b/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -70,6 +70,10 @@ Mobile app to use createstructure service
 ├── assets
 │   └── images
 │       ├── GitHub.png
+│       ├── autoLogin.png
+│       ├── login.png
+│       ├── loginError.png
+│       ├── manualLogin.png
 │       ├── networkError.png
 │       ├── settings.png
 │       ├── token.png
@@ -141,20 +145,28 @@ Mobile app to use createstructure service
 │   │   └── app_it.arb
 │   ├── main.dart
 │   ├── model
+│   │   ├── Account.dart
 │   │   ├── Answers.dart
+│   │   ├── InAppBrowserWithEndingLink.dart
 │   │   ├── NetworkCheck.dart
 │   │   ├── SettingsData.dart
 │   │   └── SettingsType.dart
 │   ├── view
+│   │   ├── AutoLogin.dart
 │   │   ├── Credentials.dart
 │   │   ├── Home.dart
+│   │   ├── Login.dart
+│   │   ├── ManualLogin.dart
 │   │   ├── NoNetwork.dart
 │   │   ├── Settings.dart
 │   │   ├── Template.dart
 │   │   └── Tutorial.dart
 │   └── viewmodel
+│       ├── AutoLoginViewModel.dart
 │       ├── CredentialsViewModel.dart
 │       ├── HomeViewModel.dart
+│       ├── LoginViewModel.dart
+│       ├── ManualLoginViewModel.dart
 │       ├── NoNetworkViewModel.dart
 │       ├── SettingsViewModel.dart
 │       ├── TemplateViewModel.dart
@@ -164,12 +176,13 @@ Mobile app to use createstructure service
 └── test
     └── widget_test.dart
 
-54 directories, 99 files
+54 directories, 111 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
 
 - [ Changelog ](#changelog)
+  - [[10.01.06] - 2021-12-26](#100106---2021-12-26)
   - [[10.01.05] - 2021-12-17](#100105---2021-12-17)
   - [[10.01.04] - 2021-12-17](#100104---2021-12-17)
   - [[10.01.03] - 2021-12-12](#100103---2021-12-12)
@@ -177,6 +190,12 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+### [10.01.06] - 2021-12-26
+- [Network check](https://github.com/createstructure/app-createstructure/issues/9)
+- [New login method](https://github.com/createstructure/app-createstructure/issues/10)
+- Updated comments
+- General optimization of code
 
 ### [10.01.05] - 2021-12-17
 - Updated token tutorial
