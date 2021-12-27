@@ -1,3 +1,8 @@
+/**
+  * Settings page
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:createstructure/viewmodel/SettingsViewModel.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,6 +22,12 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * Settings page
+     *
+     * @param context The context of the page
+     * @return Widget The page
+     */
     return ViewModelBuilder<SettingsViewModel>.reactive(
       builder: (context, viewModel, child) {
         return Scaffold(
@@ -44,17 +55,17 @@ class _SettingsState extends State<Settings> {
                 titlePadding: EdgeInsets.all(20),
                 tiles: [
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.username,
+                    title: AppLocalizations.of(context)!.login_as,
                     subtitle: viewModel.username,
                     leading: Icon(Icons.person),
-                    onPressed: viewModel.changeUsername,
+                    onPressed: viewModel.changeAccount,
                   ),
-                  SettingsTile(
+                  /*SettingsTile(
                     title: AppLocalizations.of(context)!.token,
                     subtitle: viewModel.token,
                     leading: Icon(Icons.password),
                     onPressed: viewModel.changeToken,
-                  ),
+                  ),*/
                   SettingsTile(
                     title: AppLocalizations.of(context)!.subscribe,
                     subtitle: AppLocalizations.of(context)!.subscribe_long,

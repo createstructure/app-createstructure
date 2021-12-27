@@ -1,3 +1,8 @@
+/**
+  * Template page
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/viewmodel/TemplateViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +18,12 @@ class Template extends StatefulWidget {
 class _TemplateState extends State<Template> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * Template page
+     *
+     * @param context The context of the page
+     * @return Widget The page
+     */
     return ViewModelBuilder<TemplateViewModel>.reactive(
       builder: (context, viewModel, child) {
         return Scaffold(

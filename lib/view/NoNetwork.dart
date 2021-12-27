@@ -1,3 +1,8 @@
+/**
+  * No Network page
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/viewmodel/NoNetworkViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +17,12 @@ class NoNetwork extends StatefulWidget {
 class _NoNetworkState extends State<NoNetwork> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * No Network page
+     *
+     * @param context The context of the page
+     * @return Widget The page
+     */
     return ViewModelBuilder<NoNetworkViewModel>.reactive(
       builder: (context, viewModel, child) {
         viewModel.context = context;

@@ -1,3 +1,8 @@
+/**
+  * Manager for the application's settings.
+  *
+  * @author @DavideC03
+ */
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -13,6 +18,9 @@ class SettingsData {
   SettingsData() {}
 
   Future<void> loadData() async {
+    /**
+     * Loads the data from the shared preferences.
+     */
     try {
       SharedPreferences.getInstance().then(
         (SharedPreferences prefs) {
@@ -34,12 +42,20 @@ class SettingsData {
   }
 
   Future<void> saveData() async {
+    /**
+     * Saves the data to the shared preferences.
+     */
     final prefs = await SharedPreferences.getInstance();
     debugPrint(jsonEncode(this.toJson()));
     await prefs.setString("settings", jsonEncode(this.toJson()));
   }
 
   Future<void> saveDataContext(BuildContext context) async {
+    /**
+     * Saves the data to the shared preferences.
+     *
+     * @param context The context of the application, used to reload it
+     */
     await saveData();
     await Phoenix.rebirth(context);
   }
@@ -77,6 +93,11 @@ class SettingsData {
 
   @override
   String toString() {
+    /**
+     * Returns a string representation of the object.
+     *
+     * @return A string representation of the object.
+     */
     return toJson().toString();
   }
 }

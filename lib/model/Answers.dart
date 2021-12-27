@@ -1,3 +1,8 @@
+/**
+  * Manager for the answers given by the user.
+  *
+  * @author @DavideC03
+ */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -14,7 +19,13 @@ class Answers {
 
   Answers() {}
 
-  change(String key, String value) {
+  void change(String key, String value) {
+    /**
+      * Change the value of the key.
+      *
+      * @param key The key to change.
+      * @param value The new value.
+      */
     switch (key) {
       case "name":
         name = value;
@@ -99,6 +110,11 @@ class Answers {
 
   @override
   String toString() {
+    /**
+      * Return a string representation of the object.
+      *
+      * @return A string representation of the object.
+      */
     return AppLocalizations.of(_context!)!.summary +
         "\n\t\t\t\t\t\t\t\t" +
         AppLocalizations.of(_context!)!.repo_name +

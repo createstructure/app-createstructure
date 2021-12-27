@@ -1,3 +1,8 @@
+/**
+  * Starting point for the application.
+  *
+  * @author @DavideC03
+ */
 import 'dart:io';
 
 import 'package:createstructure/model/SettingsData.dart';
@@ -10,6 +15,9 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
+  /**
+    * This is the main function of the app.
+   */
   runApp(Phoenix(
     child: MyApp(),
   ));
@@ -23,23 +31,37 @@ class MyApp extends StatelessWidget {
   bool _refreshed = false;
 
   _syncLocale(BuildContext context) async {
+    /**
+      * This function is used to sync the locale with the shared preferences.
+      *
+      * @param context The context of the app.
+     */
     var prefs = await SharedPreferences.getInstance();
     if (prefs.getKeys().contains('language_code')) {
-      _locale = new Locale(prefs.getString('language_code') ?? 'en');
+      _locale = Locale(prefs.getString('language_code') ?? 'en');
     } else {
-      _locale = new Locale(Platform.localeName);
+      _locale = Locale(Platform.localeName);
     }
     debugPrint(_locale.toString());
-    await _locale;
     return _locale;
   }
 
   _loadSettings(BuildContext context) async {
+    /**
+      * This function is used to load the settings from the shared preferences.
+      *
+      * @param context The context of the app.
+     */
     await _settingsData.loadData();
     return _settingsData.loaded;
   }
 
   _refresh(BuildContext context) async {
+    /**
+      * This function is used to refresh the app.
+      *
+      * @param context The context of the app.
+     */
     var prefs = await SharedPreferences.getInstance();
     if (prefs.getKeys().contains('refresh') || !_refreshed) {
       print("Refreshing...");
@@ -52,6 +74,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /**
+      * This function is used to build the app.
+      *
+      * @param context The context of the app.
+     */
     _loadSettings(context).then((loaded) {
       print("Settings loaded");
       return loaded;

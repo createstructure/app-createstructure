@@ -1,3 +1,8 @@
+/**
+  * Home page
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/view/Credentials.dart';
 import 'package:createstructure/view/Settings.dart';
 import 'package:createstructure/viewmodel/HomeViewModel.dart';
@@ -19,6 +24,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * Home page
+     *
+     * @param context The context of the page
+     * @return Widget The page
+     */
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, viewModel, child) {
         viewModel.context = context;

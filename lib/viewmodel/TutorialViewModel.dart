@@ -1,3 +1,8 @@
+/**
+  * Tutorial View Model
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -19,7 +24,14 @@ class TutorialViewModel extends MultipleFutureViewModel {
     await _settingsData.loadData();
   }
 
-  _getFooter(BuildContext context, int f) {
+  Widget _getFooter(BuildContext context, int f) {
+    /**
+      * This is the footer of some tutorial screens.
+      * 
+      * @param context The context of the widget.
+      * @param f The number of the footer.
+      * @return The footer.
+      */
     switch (f) {
       case 3:
         print(f);
@@ -46,8 +58,22 @@ class TutorialViewModel extends MultipleFutureViewModel {
   }
 
   PageViewModel _getPage(
-      BuildContext context, String title, String description, String img,
-      {int footer = 0}) {
+    BuildContext context,
+    String title,
+    String description,
+    String img, {
+    int footer = 0,
+  }) {
+    /**
+      * This is the page of some tutorial screens.
+      * 
+      * @param context The context of the widget.
+      * @param title The title of the page.
+      * @param description The description of the page.
+      * @param img The image of the page.
+      * @param footer The number of the footer.
+      * @return The page.
+      */
     return PageViewModel(
       title: title,
       body: description,
@@ -58,6 +84,12 @@ class TutorialViewModel extends MultipleFutureViewModel {
   }
 
   List<PageViewModel> getPages(BuildContext context) {
+    /**
+      * This is the list of pages of the tutorial.
+      * 
+      * @param context The context of the widget.
+      * @return The list of pages.
+      */
     return [
       _getPage(
         context,
@@ -107,7 +139,10 @@ class TutorialViewModel extends MultipleFutureViewModel {
     ];
   }
 
-  onDone() async {
+  void onDone() async {
+    /**
+      * This is the function called when the tutorial is finished.
+      */
     var prefs = await SharedPreferences.getInstance();
     await prefs.setBool('refresh', true);
     print(AppLocalizations.of(_context!)!.done);

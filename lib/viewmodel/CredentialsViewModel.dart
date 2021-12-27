@@ -1,3 +1,8 @@
+/**
+  * Credentials View Model
+  *
+  * @author @DavideC03
+ */
 import 'package:stacked/stacked.dart';
 
 class CredentialsViewModel extends MultipleFutureViewModel {

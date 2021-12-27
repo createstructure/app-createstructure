@@ -1,3 +1,8 @@
+/**
+  * No Network View Model
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stacked/stacked.dart';
@@ -13,6 +18,9 @@ class NoNetworkViewModel extends MultipleFutureViewModel {
   }
 
   void check() {
+    /**
+     * Check if the device has internet connection
+     */
     _networkCheck!.checkAgainNetwork();
   }
 

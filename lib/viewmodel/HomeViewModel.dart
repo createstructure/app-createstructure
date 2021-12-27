@@ -1,5 +1,11 @@
+/**
+  * Home View Model
+  *
+  * @author @DavideC03
+ */
 import 'dart:convert';
 
+import 'package:createstructure/model/Account.dart';
 import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:createstructure/model/SettingsData.dart';
@@ -16,6 +22,7 @@ class HomeViewModel extends MultipleFutureViewModel {
   SettingsData _settingsData = new SettingsData();
   Answers _answers = new Answers();
   NetworkCheck? _networkCheck;
+  Account _account = Account();
   int _index = 0;
   BuildContext? _context;
 
@@ -121,11 +128,19 @@ class HomeViewModel extends MultipleFutureViewModel {
   Map<String, Future Function()> get futuresMap =>
       {DEFAULT_FUNCTION: defaultFunction};
 
-  init() async {
+  Future<void> init() async {
+    /**
+     * Load settings
+     */
     await _settingsData.loadData();
   }
 
-  message(String message) {
+  void message(String message) {
+    /**
+     * Show message
+     *
+     * @param message Message to show
+     */
     print(message);
     Fluttertoast.showToast(
       msg: message,
@@ -134,10 +149,15 @@ class HomeViewModel extends MultipleFutureViewModel {
     );
   }
 
-  warning(String error) =>
+  void warning(String error) =>
       message(AppLocalizations.of(_context!)!.error + error);
 
   String _getBody() {
+    /**
+     * Get body
+     *
+     * @return Body of the request
+     */
     Map body = Map();
     Map payload = Map();
     Map answers = Map();
@@ -175,7 +195,10 @@ class HomeViewModel extends MultipleFutureViewModel {
     return jsonEncode(body);
   }
 
-  sendData() async {
+  void sendData() async {
+    /**
+     * Send data
+     */
     await init();
     String request = _getBody();
     if (request == "error") return;
@@ -196,7 +219,17 @@ class HomeViewModel extends MultipleFutureViewModel {
     }
   }
 
-  _getPadding(IconData icon, String key, String title, String description) {
+  Padding _getPadding(
+      IconData icon, String key, String title, String description) {
+    /**
+     * Get padding
+     *
+     * @param icon Icon
+     * @param key Key
+     * @param title Title
+     * @param description Description
+     * @return Padding
+     */
     if (!_textEditingControllers.containsKey(key)) {
       _textEditingControllers[key] = TextEditingController();
     }
@@ -217,7 +250,10 @@ class HomeViewModel extends MultipleFutureViewModel {
     );
   }
 
-  onStepContinue() {
+  void onStepContinue() {
+    /**
+     * On step continue
+     */
     if (_index < (stepList().length - 1)) {
       _index += 1;
     } else {
@@ -226,19 +262,37 @@ class HomeViewModel extends MultipleFutureViewModel {
     }
   }
 
-  onStepCancel() {
+  void onStepCancel() {
+    /**
+     * On step cancel
+     */
     _index = 0;
     for (var value in _textEditingControllers.values) value.clear();
     _answers = Answers();
   }
 
-  onStepTapped(int index) {
+  void onStepTapped(int index) {
+    /**
+     * On step tapped
+     *
+     * @param index Index of the tapped step
+     */
     _index = index;
   }
 
-  int get index => _index;
+  void checkAccount() async {
+    /**
+     * Check account
+     */
+    if ((await _networkCheck!.checkIfNetwork())) _account.checkAccount();
+  }
 
   bool last() {
+    /**
+     * Last
+     *
+     * @return True if it's the last step
+     */
     return _index == stepList().length - 1;
   }
 
@@ -247,7 +301,11 @@ class HomeViewModel extends MultipleFutureViewModel {
     _answers.context = value;
     _networkCheck = NetworkCheck(value);
     _networkCheck!.checkNetwork();
+    _account.context = value;
+    checkAccount();
   }
+
+  int get index => _index;
 
   Future<String> defaultFunction() async {
     return "";

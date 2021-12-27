@@ -1,3 +1,8 @@
+/**
+  * Tutorial page
+  *
+  * @author @DavideC03
+ */
 import 'package:createstructure/viewmodel/TutorialViewModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +22,12 @@ class Tutorial extends StatefulWidget {
 class _TutorialState extends State<Tutorial> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * Tutorial page
+     *
+     * @param context The context of the page
+     * @return Widget The page
+     */
     return ViewModelBuilder<TutorialViewModel>.reactive(
       builder: (context, viewModel, child) {
         viewModel.context = context;

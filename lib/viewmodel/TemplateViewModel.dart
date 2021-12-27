@@ -1,3 +1,8 @@
+/**
+  * Template View Model
+  *
+  * @author @DavideC03
+ */
 import 'package:stacked/stacked.dart';
 
 class TemplateViewModel extends MultipleFutureViewModel {
