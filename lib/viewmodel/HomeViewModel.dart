@@ -7,6 +7,7 @@ import 'dart:convert';
 
 import 'package:createstructure/model/Account.dart';
 import 'package:createstructure/model/Answers.dart';
+import 'package:createstructure/model/CheckboxFormField.dart';
 import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/cupertino.dart';
@@ -53,6 +54,7 @@ class HomeViewModel extends MultipleFutureViewModel {
                   "private",
                   AppLocalizations.of(_context!)!.question_7_short,
                   AppLocalizations.of(_context!)!.question_7_long,
+                  boolean: true,
                 ),
                 _getPadding(
                   Icons.navigate_before,
@@ -220,7 +222,12 @@ class HomeViewModel extends MultipleFutureViewModel {
   }
 
   Padding _getPadding(
-      IconData icon, String key, String title, String description) {
+    IconData icon,
+    String key,
+    String title,
+    String description, {
+    bool boolean = false,
+  }) {
     /**
      * Get padding
      *
@@ -236,17 +243,26 @@ class HomeViewModel extends MultipleFutureViewModel {
 
     return Padding(
       padding: EdgeInsets.all(8.0),
-      child: TextFormField(
-        controller: _textEditingControllers[key],
-        decoration: InputDecoration(
-          icon: Icon(icon),
-          hintText: title,
-          labelText: description,
-        ),
-        onChanged: (String value) {
-          _answers.change(key, value);
-        },
-      ),
+      child: (boolean
+          ? CheckboxFormField(
+              //controller: _textEditingControllers[key],
+              icon: icon,
+              title: title,
+              onChanged: (bool value) {
+                _answers.change(key, value.toString());
+              },
+            )
+          : TextFormField(
+              controller: _textEditingControllers[key],
+              decoration: InputDecoration(
+                icon: Icon(icon),
+                hintText: title,
+                labelText: description,
+              ),
+              onChanged: (String value) {
+                _answers.change(key, value);
+              },
+            )),
     );
   }
 

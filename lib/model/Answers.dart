@@ -45,7 +45,14 @@ class Answers {
         isOrg = value != "";
         break;
       case "private":
-        private = !(["N", "No", "n", "no"].contains(value)) || value == "";
+        private = !([
+              "N",
+              "No",
+              "n",
+              "no",
+              "false",
+            ].contains(value)) ||
+            value == "";
         break;
       case "isOrg":
         isOrg = value;
