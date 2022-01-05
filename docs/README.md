@@ -5,7 +5,7 @@
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/a0aff21f8d25368a0b1b5a9ea2a2fab41bdc9f552a42de8745ea3e798a522b3e/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/cd4b1adef0fc08f45b5cce4cb1ffbbda58a554763de0cb9812ba85faf0823d5e/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -183,6 +183,7 @@ Mobile app to use createstructure service
 Repo where there is the mobile application to use createstructure
 
 - [ Changelog ](#changelog)
+  - [[10.01.08] - 2022-01-05](#100108---2022-01-05)
   - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
   - [[10.01.06] - 2021-12-26](#100106---2021-12-26)
   - [[10.01.05] - 2021-12-17](#100105---2021-12-17)
@@ -192,6 +193,9 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+### [10.01.08] - 2022-01-05
+- [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
 
 ### [10.01.07] - 2021-12-29
 - Private option is now a checkbox
