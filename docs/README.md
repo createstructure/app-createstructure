@@ -84,6 +84,7 @@ Mobile app to use createstructure service
 │   ├── CHANGELOG.md
 │   ├── LICENSE
 │   ├── README.md
+│   ├── app-createstructure-Class-UML.svg
 │   └── app-createstructure.drawio
 ├── icon
 │   └── createstructure.png
@@ -180,7 +181,7 @@ Mobile app to use createstructure service
 └── test
     └── widget_test.dart
 
-54 directories, 113 files
+54 directories, 114 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
