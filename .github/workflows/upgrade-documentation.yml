@@ -23,7 +23,7 @@ jobs:
         git config user.email "help@castellanidavide.it"
         git add *
         git commit -m "Exported UML automatically"
-        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git
+        git push https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git -f
 
   upgrade-documentation:
     needs: [UML-export]
