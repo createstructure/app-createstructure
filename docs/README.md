@@ -1,11 +1,11 @@
 # debian-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/app-createstructure/blob/main/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/app-createstructure/blob/UML-beta/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
 ##  Description 
 Mobile app to use createstructure service
-![createstructure/app-createstructure](https://opengraph.githubassets.com/cd4b1adef0fc08f45b5cce4cb1ffbbda58a554763de0cb9812ba85faf0823d5e/createstructure/app-createstructure)
+![createstructure/app-createstructure](https://opengraph.githubassets.com/040e1cc3f2bf4bbd95191c6769a91d3db85942ec6ab1a0c2eda136589e999086/createstructure/app-createstructure)
 ##  Directory structure 
 
 ```
@@ -81,7 +81,8 @@ Mobile app to use createstructure service
 ├── docs # documentation
 │   ├── CHANGELOG.md
 │   ├── LICENSE
-│   └── README.md
+│   ├── README.md
+│   └── app-createstructure.drawio
 ├── icon
 │   └── createstructure.png
 ├── ios
@@ -177,7 +178,7 @@ Mobile app to use createstructure service
 └── test
     └── widget_test.dart
 
-54 directories, 112 files
+54 directories, 113 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
