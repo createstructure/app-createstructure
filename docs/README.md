@@ -1,5 +1,5 @@
 # debian-createstructure
-[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/app-createstructure/blob/UML-beta/docs/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GNU-green?style=flat)](https://github.com/createstructure/app-createstructure/blob/main/docs/LICENSE)
 ![Author](https://img.shields.io/badge/author-Castellani%20Davide-green?style=flat)
 ![sys.platform supported](https://img.shields.io/badge/OS%20platform%20supported-all-blue?style=flat) 
 
@@ -7,7 +7,7 @@
 Mobile app to use createstructure service
 ![createstructure/app-createstructure](https://opengraph.githubassets.com/040e1cc3f2bf4bbd95191c6769a91d3db85942ec6ab1a0c2eda136589e999086/createstructure/app-createstructure)
 ##  Class UML 
-![Class UML](https://raw.githubusercontent.com/createstructure/app-createstructure/UML-beta/docs/app-createstructure-Class-UML.svg)
+![Class UML](https://raw.githubusercontent.com/createstructure/app-createstructure/main/docs/app-createstructure-Class-UML.svg)
 ##  Directory structure 
 
 ```
@@ -187,6 +187,7 @@ Mobile app to use createstructure service
 Repo where there is the mobile application to use createstructure
 
 - [ Changelog ](#changelog)
+  - [[10.01.09] - 2022-03-12](#100109---2022-03-12)
   - [[10.01.08] - 2022-01-05](#100108---2022-01-05)
   - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
   - [[10.01.06] - 2021-12-26](#100106---2021-12-26)
@@ -197,6 +198,9 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+### [10.01.09] - 2022-03-12
+- [Added charts automation](https://github.com/createstructure/libraries-createstructure/issues/11)
 
 ### [10.01.08] - 2022-01-05
 - [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
