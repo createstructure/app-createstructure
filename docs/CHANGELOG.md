@@ -2,6 +2,7 @@
 Repo where there is the mobile application to use createstructure
 
 - [Changelog](#changelog)
+  - [[10.01.09] - 2022-03-12](#100109---2022-03-12)
   - [[10.01.08] - 2022-01-05](#100108---2022-01-05)
   - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
   - [[10.01.06] - 2021-12-26](#100106---2021-12-26)
@@ -12,6 +13,9 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+## [10.01.09] - 2022-03-12
+- [Added charts automation](https://github.com/createstructure/libraries-createstructure/issues/11)
 
 ## [10.01.08] - 2022-01-05
 - [Add sponsorship button](https://github.com/createstructure/createstructure.github.io/issues/36)
