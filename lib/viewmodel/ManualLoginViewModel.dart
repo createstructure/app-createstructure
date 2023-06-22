@@ -1,8 +1,6 @@
-/**
-  * MAnual Login View Model
-  *
-  * @author @DavideC03
- */
+/// MAnual Login View Model
+///
+/// @author @DavideC03
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stacked/stacked.dart';

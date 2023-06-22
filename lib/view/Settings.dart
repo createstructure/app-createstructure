@@ -1,18 +1,15 @@
-/**
-  * Settings page
-  *
-  * @author @DavideC03
- */
+/// Settings page
+///
+/// @author @DavideC03
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:createstructure/viewmodel/SettingsViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -51,12 +48,14 @@ class _SettingsState extends State<Settings> {
           body: SettingsList(
             sections: [
               SettingsSection(
-                title: AppLocalizations.of(context)!.identification,
-                titlePadding: EdgeInsets.all(20),
+                title: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(AppLocalizations.of(context)!.identification),
+                ),
                 tiles: [
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.login_as,
-                    subtitle: viewModel.username,
+                    title: Text(AppLocalizations.of(context)!.login_as),
+                    description: viewModel.username,
                     leading: Icon(Icons.person),
                     onPressed: viewModel.changeAccount,
                   ),
@@ -67,16 +66,18 @@ class _SettingsState extends State<Settings> {
                     onPressed: viewModel.changeToken,
                   ),*/
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.subscribe,
-                    subtitle: AppLocalizations.of(context)!.subscribe_long,
+                    title: Text(AppLocalizations.of(context)!.subscribe),
+                    description:
+                        Text(AppLocalizations.of(context)!.subscribe_long),
                     leading: Icon(Icons.monetization_on),
                     onPressed: (BuildContext context) {
-                      launch("https://github.com/marketplace/createstructure");
+                      launchUrlString("https://github.com/marketplace/createstructure");
                     },
                   ),
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.refresh,
-                    subtitle: AppLocalizations.of(context)!.refresh_long,
+                    title: Text(AppLocalizations.of(context)!.refresh),
+                    description:
+                        Text(AppLocalizations.of(context)!.refresh_long),
                     leading: Icon(Icons.refresh),
                     onPressed: (BuildContext context) {
                       setState(() {});
@@ -85,12 +86,14 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
               SettingsSection(
-                title: AppLocalizations.of(context)!.languages,
-                titlePadding: EdgeInsets.all(20),
+                title: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(AppLocalizations.of(context)!.languages),
+                ),
                 tiles: [
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.languages,
-                    subtitle: AppLocalizations.of(context)!.languages_long,
+                    title: Text(AppLocalizations.of(context)!.languages),
+                    description: Text(AppLocalizations.of(context)!.languages_long),
                     leading: Icon(Icons.language),
                     onPressed: (BuildContext context) {
                       viewModel.changeLanguage(context);
@@ -99,12 +102,14 @@ class _SettingsState extends State<Settings> {
                 ],
               ),
               SettingsSection(
-                title: AppLocalizations.of(context)!.help,
-                titlePadding: EdgeInsets.all(20),
+                title: Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(AppLocalizations.of(context)!.help),
+                ),
                 tiles: [
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.tutorial,
-                    subtitle: AppLocalizations.of(context)!.tutorial_long,
+                    title: Text(AppLocalizations.of(context)!.tutorial),
+                    description: Text(AppLocalizations.of(context)!.tutorial_long),
                     leading: Icon(Icons.help),
                     onPressed: (BuildContext context) async {
                       var prefs = await SharedPreferences.getInstance();
@@ -118,10 +123,10 @@ class _SettingsState extends State<Settings> {
                     },
                   ),
                   SettingsTile(
-                    title: AppLocalizations.of(context)!.ask,
-                    subtitle: AppLocalizations.of(context)!.ask_long,
+                    title: Text(AppLocalizations.of(context)!.ask),
+                    description: Text(AppLocalizations.of(context)!.ask_long),
                     leading: Icon(Icons.help),
-                    onPressed: (BuildContext context) => launch(
+                    onPressed: (BuildContext context) => launchUrlString(
                         "https://github.com/createstructure/app-createstructure/discussions/new?category=q-a"),
                   ),
                 ],
@@ -131,7 +136,7 @@ class _SettingsState extends State<Settings> {
         );
       },
       viewModelBuilder: () => SettingsViewModel(),
-      onModelReady: (viewModel) async {
+      onViewModelReady: (viewModel) async {
         viewModel.init();
       },
     );

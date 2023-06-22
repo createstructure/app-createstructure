@@ -1,14 +1,11 @@
-/**
-  * Template page
-  *
-  * @author @DavideC03
- */
+/// Template page
+///
+/// @author @DavideC03
 import 'package:createstructure/viewmodel/TemplateViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Template extends StatefulWidget {
   @override
@@ -39,7 +36,7 @@ class _TemplateState extends State<Template> {
                     height: 24,
                     width: 24,
                   ),
-                  onPressed: () => launch("https://createstructure.github.io/"),
+                  onPressed: () => launchUrlString("https://createstructure.github.io/"),
                 ),
               ),
             ],
@@ -48,7 +45,6 @@ class _TemplateState extends State<Template> {
         );
       },
       viewModelBuilder: () => TemplateViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

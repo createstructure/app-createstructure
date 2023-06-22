@@ -1,11 +1,8 @@
-/**
-  * Login View Model
-  *
-  * @author @DavideC03
- */
+/// Login View Model
+///
+/// @author @DavideC03
 import 'package:createstructure/view/AutoLogin.dart';
 import 'package:createstructure/view/ManualLogin.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 

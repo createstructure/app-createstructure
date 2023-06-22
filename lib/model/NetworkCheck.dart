@@ -1,10 +1,7 @@
-/**
-  * Check for the network connection
-  *
-  * @author @DavideC03
- */
+/// Check for the network connection
+///
+/// @author @DavideC03
 import 'package:createstructure/view/NoNetwork.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:synchronized/synchronized.dart';

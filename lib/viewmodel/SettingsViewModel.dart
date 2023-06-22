@@ -1,12 +1,9 @@
-/**
-  * Settings View Model
-  *
-  * @author @DavideC03
- */
+/// Settings View Model
+///
+/// @author @DavideC03
 import 'package:createstructure/model/Account.dart';
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:createstructure/model/SettingsType.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';

@@ -1,8 +1,6 @@
-/**
-  * Inside app browser window
-  *
-  * @author @DavideC03
- */
+/// Inside app browser window
+///
+/// @author @DavideC03
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class InAppBrowserWithEndingLink extends InAppBrowser {

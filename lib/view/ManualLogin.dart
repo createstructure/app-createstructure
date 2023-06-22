@@ -1,10 +1,7 @@
-/**
-  * Manual Login page
-  *
-  * @author @DavideC03
- */
+/// Manual Login page
+///
+/// @author @DavideC03
 import 'package:createstructure/viewmodel/ManualLoginViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
@@ -86,7 +83,6 @@ class _ManualLoginState extends State<ManualLogin> {
         );
       },
       viewModelBuilder: () => ManualLoginViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

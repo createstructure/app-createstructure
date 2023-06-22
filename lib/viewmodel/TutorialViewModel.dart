@@ -1,15 +1,13 @@
-/**
-  * Tutorial View Model
-  *
-  * @author @DavideC03
- */
+/// Tutorial View Model
+///
+/// @author @DavideC03
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TutorialViewModel extends MultipleFutureViewModel {
   static const DEFAULT_FUNCTION = "DEFAULT_FUNCTION";
@@ -37,19 +35,19 @@ class TutorialViewModel extends MultipleFutureViewModel {
         print(f);
         return TextButton(
           onPressed: () =>
-              launch(AppLocalizations.of(context)!.tutorial_button_3_link),
+              launchUrlString(AppLocalizations.of(context)!.tutorial_button_3_link),
           child: Text(AppLocalizations.of(context)!.tutorial_button_3_text),
         );
       case 4:
         return TextButton(
           onPressed: () =>
-              launch(AppLocalizations.of(context)!.tutorial_button_4_link),
+              launchUrlString(AppLocalizations.of(context)!.tutorial_button_4_link),
           child: Text(AppLocalizations.of(context)!.tutorial_button_4_text),
         );
       case 5:
         return TextButton(
           onPressed: () =>
-              launch(AppLocalizations.of(context)!.tutorial_button_5_link),
+              launchUrlString(AppLocalizations.of(context)!.tutorial_button_5_link),
           child: Text(AppLocalizations.of(context)!.tutorial_button_5_text),
         );
       default:

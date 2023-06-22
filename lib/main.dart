@@ -1,8 +1,8 @@
-/**
-  * Starting point for the application.
-  *
-  * @author @DavideC03
- */
+/// Starting point for the application.
+///
+/// @author @DavideC03
+// ignore_for_file: must_be_immutable
+
 import 'dart:io';
 
 import 'package:createstructure/model/SettingsData.dart';

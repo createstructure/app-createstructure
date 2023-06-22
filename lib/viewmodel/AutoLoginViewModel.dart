@@ -1,8 +1,6 @@
-/**
-  * Auto Login View Model
-  *
-  * @author @DavideC03
- */
+/// Auto Login View Model
+///
+/// @author @DavideC03
 import 'dart:convert';
 
 import 'package:createstructure/model/Account.dart';

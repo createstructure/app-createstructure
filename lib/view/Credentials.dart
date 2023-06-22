@@ -1,11 +1,8 @@
-/**
-  * Credentials page
-  *
-  * @author @DavideC03
- */
+/// Credentials page
+///
+/// @author @DavideC03
 import 'package:createstructure/viewmodel/CredentialsViewModel.dart';
 import 'package:end_credits/end_credits.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
@@ -30,7 +27,7 @@ class _CredentialsState extends State<Credentials> {
       builder: (context, viewModel, child) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.credentials),
+            title: Text(AppLocalizations.of(context)!.credits),
             leading: Icon(Icons.info),
             actions: <Widget>[
               Padding(
@@ -145,7 +142,6 @@ class _CredentialsState extends State<Credentials> {
         );
       },
       viewModelBuilder: () => CredentialsViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

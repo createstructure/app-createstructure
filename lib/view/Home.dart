@@ -1,16 +1,13 @@
-/**
-  * Home page
-  *
-  * @author @DavideC03
- */
+/// Home page
+///
+/// @author @DavideC03
 import 'package:createstructure/view/Credentials.dart';
 import 'package:createstructure/view/Settings.dart';
 import 'package:createstructure/viewmodel/HomeViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Home extends StatefulWidget {
   //MyHomePage({Key key, this.title}) : super(key: key);
@@ -22,6 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   @override
   Widget build(BuildContext context) {
     /**
@@ -46,7 +44,7 @@ class _HomeState extends State<Home> {
                     height: 24,
                     width: 24,
                   ),
-                  onPressed: () => launch("https://createstructure.github.io/"),
+                  onPressed: () => launchUrlString("https://createstructure.github.io/"),
                 ),
               ),
               Padding(
@@ -86,17 +84,17 @@ class _HomeState extends State<Home> {
                 viewModel.onStepTapped(index);
               }),
               controlsBuilder: (BuildContext context2,
-                  {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+              ControlsDetails controlsDetails) {
                 return Row(
                   children: [
                     TextButton(
-                      onPressed: onStepContinue,
+                      onPressed: controlsDetails.onStepContinue,
                       child: Text(viewModel.last()
                           ? AppLocalizations.of(context)!.submit
                           : AppLocalizations.of(context)!.continue_),
                     ),
                     TextButton(
-                      onPressed: onStepCancel,
+                      onPressed: controlsDetails.onStepCancel,
                       child: Text(AppLocalizations.of(context)!.reset),
                     ),
                   ],
@@ -107,7 +105,6 @@ class _HomeState extends State<Home> {
         );
       },
       viewModelBuilder: () => HomeViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

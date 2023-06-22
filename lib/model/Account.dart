@@ -1,13 +1,10 @@
-/**
-  * Class to manage the account of the user
-  *
-  * @author @DavideC03
- */
+/// Class to manage the account of the user
+///
+/// @author @DavideC03
 import 'dart:convert';
 
 import 'package:createstructure/model/SettingsData.dart';
 import 'package:createstructure/view/Login.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 

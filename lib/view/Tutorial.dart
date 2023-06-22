@@ -1,10 +1,7 @@
-/**
-  * Tutorial page
-  *
-  * @author @DavideC03
- */
+/// Tutorial page
+///
+/// @author @DavideC03
 import 'package:createstructure/viewmodel/TutorialViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -39,14 +36,12 @@ class _TutorialState extends State<Tutorial> {
             next: Icon(Icons.arrow_forward),
             showNextButton: true,
             showDoneButton: true,
-            isTopSafeArea: true,
-            isBottomSafeArea: true,
+            safeAreaList: [true, true, true, true],
             dotsFlex: 2, // Support up to 9 tutorial pages
           ),
         );
       },
       viewModelBuilder: () => TutorialViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

@@ -1,23 +1,21 @@
-/**
-  * Manager for the answers given by the user.
-  *
-  * @author @DavideC03
- */
+/// Manager for the answers given by the user.
+///
+/// @author @DavideC03
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Answers {
-  String _name = "";
+  String name = "";
   String _template = "";
   String _descr = "";
   String _prefix = "";
   String _org = "";
   String _team = "";
-  bool _private = false;
+  bool private = false;
   bool _isOrg = false;
   BuildContext? _context;
 
-  Answers() {}
+  Answers();
 
   void change(String key, String value) {
     /**
@@ -69,12 +67,6 @@ class Answers {
     _isOrg = value;
   }
 
-  bool get private => _private;
-
-  set private(bool value) {
-    _private = value;
-  }
-
   get org => _org;
 
   set org(value) {
@@ -97,12 +89,6 @@ class Answers {
 
   set template(value) {
     _template = value;
-  }
-
-  String get name => _name;
-
-  set name(String value) {
-    _name = value;
   }
 
   get team => _team;

@@ -1,14 +1,11 @@
-/**
-  * Login page
-  *
-  * @author @DavideC03
- */
+/// Login page
+///
+/// @author @DavideC03
 import 'package:createstructure/viewmodel/LoginViewModel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:stacked/stacked.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -54,7 +51,7 @@ class _LoginState extends State<Login> {
                 ),
                 TextButton(
                   onPressed: () =>
-                      launch("https://github.com/marketplace/createstructure"),
+                      launchUrlString("https://github.com/marketplace/createstructure"),
                   child: Text(AppLocalizations.of(context)!.subscribe),
                 ),
                 Text(
@@ -78,7 +75,6 @@ class _LoginState extends State<Login> {
         );
       },
       viewModelBuilder: () => LoginViewModel(),
-      onModelReady: (viewModel) async {},
     );
   }
 }

@@ -1,8 +1,6 @@
-/**
-  * Home View Model
-  *
-  * @author @DavideC03
- */
+/// Home View Model
+///
+/// @author @DavideC03
 import 'dart:convert';
 
 import 'package:createstructure/model/Account.dart';
@@ -10,10 +8,8 @@ import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/model/CheckboxFormField.dart';
 import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:createstructure/model/SettingsData.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:stacked/stacked.dart';
 
@@ -144,11 +140,14 @@ class HomeViewModel extends MultipleFutureViewModel {
      * @param message Message to show
      */
     print(message);
+    // TODO: create message
+    /*
     Fluttertoast.showToast(
       msg: message,
       gravity: ToastGravity.CENTER,
       toastLength: Toast.LENGTH_LONG,
     );
+    */
   }
 
   void warning(String error) =>

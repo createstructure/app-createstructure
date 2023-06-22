@@ -1,8 +1,6 @@
-/**
-  * No Network View Model
-  *
-  * @author @DavideC03
- */
+/// No Network View Model
+///
+/// @author @DavideC03
 import 'package:createstructure/model/NetworkCheck.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stacked/stacked.dart';
