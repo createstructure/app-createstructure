@@ -32,7 +32,7 @@ dependencies:
   end_credits: ^2.0.0
   flutter_native_splash: ^2.3.1
   url_launcher: ^6.0.15
-  intl: ^0.18.0
+  intl: ^0.17.0
   flutter_phoenix: ^1.0.0
   introduction_screen: ^3.1.9
   flutter_inappwebview: ^5.3.2
