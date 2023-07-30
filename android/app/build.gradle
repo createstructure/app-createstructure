@@ -46,7 +46,7 @@ android {
     defaultConfig {
         applicationId "it.castellanidavide.createstructure.createstructure"
         minSdkVersion 17
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
