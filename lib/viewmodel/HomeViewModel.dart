@@ -3,6 +3,7 @@
 /// @author @DavideC03
 import 'dart:convert';
 
+import 'package:cherry_toast/cherry_toast.dart';
 import 'package:createstructure/model/Account.dart';
 import 'package:createstructure/model/Answers.dart';
 import 'package:createstructure/model/CheckboxFormField.dart';
@@ -133,25 +134,25 @@ class HomeViewModel extends MultipleFutureViewModel {
     await _settingsData.loadData();
   }
 
-  void message(String message) {
+  void message(String message, bool success) {
     /**
      * Show message
      *
      * @param message Message to show
      */
     print(message);
-    // TODO: create message
-    /*
-    Fluttertoast.showToast(
-      msg: message,
-      gravity: ToastGravity.CENTER,
-      toastLength: Toast.LENGTH_LONG,
-    );
-    */
-  }
 
-  void warning(String error) =>
-      message(AppLocalizations.of(_context!)!.error + error);
+    if (success)
+      CherryToast.success(
+        title: Text(message),
+        toastDuration: Duration(seconds: 2),
+      ).show(_context!);
+    else
+      CherryToast.error(
+        title: Text(message),
+        toastDuration: Duration(seconds: 3),
+      ).show(_context!);
+  }
 
   String _getBody() {
     /**
@@ -166,19 +167,19 @@ class HomeViewModel extends MultipleFutureViewModel {
     if (_settingsData.username != "") {
       payload["username"] = _settingsData.username;
     } else {
-      warning(AppLocalizations.of(_context!)!.error_username);
+      message(AppLocalizations.of(_context!)!.error_username, false);
       return "error";
     }
     if (_settingsData.token != "") {
       payload["token"] = _settingsData.token;
     } else {
-      warning(AppLocalizations.of(_context!)!.error_token);
+      message(AppLocalizations.of(_context!)!.error_token, false);
       return "error";
     }
     if (_answers.name != "") {
       answers["name"] = _answers.name;
     } else {
-      warning(AppLocalizations.of(_context!)!.error_repo_name);
+      message(AppLocalizations.of(_context!)!.error_repo_name, false);
       return "error";
     }
     if (_answers.template != "") answers["template"] = _answers.template;
@@ -214,9 +215,9 @@ class HomeViewModel extends MultipleFutureViewModel {
     print(r.toString());
 
     if (r["code"] == 200) {
-      message(AppLocalizations.of(_context!)!.code_200);
+      message(AppLocalizations.of(_context!)!.code_200, true);
     } else {
-      message(AppLocalizations.of(_context!)!.error + r["message"]);
+      message(AppLocalizations.of(_context!)!.error + r["message"], false);
     }
   }
 

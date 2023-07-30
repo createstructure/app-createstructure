@@ -75,28 +75,22 @@ class _CredentialsState extends State<Credentials> {
                   ),
                   Role(
                     name: AppLocalizations.of(context)!.flutter_dependencies,
-                    crew: [
-                      Responsable(AppLocalizations.of(context)!.settings_ui),
-                      Responsable(
-                          AppLocalizations.of(context)!.stacked_services),
-                      Responsable(AppLocalizations.of(context)!.stacked),
-                      Responsable(AppLocalizations.of(context)!.http),
-                      Responsable(
-                          AppLocalizations.of(context)!.shared_preferences),
-                      Responsable(
-                          AppLocalizations.of(context)!.cupertino_icons),
-                      Responsable(
-                          AppLocalizations.of(context)!.flutter_launcher_icons),
-                      Responsable(AppLocalizations.of(context)!.end_credits),
-                      Responsable(
-                          AppLocalizations.of(context)!.flutter_native_splash),
-                      Responsable(AppLocalizations.of(context)!.fluttertoast),
-                      Responsable(
-                          AppLocalizations.of(context)!.introduction_screen),
-                      Responsable(AppLocalizations.of(context)!.url_launcher),
-                      Responsable(
-                          AppLocalizations.of(context)!.flutter_inappwebview),
-                      Responsable(AppLocalizations.of(context)!.synchronized),
+                    crew: const [
+                      Responsable("cherry_toast"),
+                      Responsable("cupertino_icons"),
+                      Responsable("end_credits"),
+                      Responsable("flutter_inappwebview"),
+                      Responsable("flutter_launcher_icons"),
+                      Responsable("flutter_native_splash"),
+                      Responsable("fluttertoast"),
+                      Responsable("http"),
+                      Responsable("introduction_screen"),
+                      Responsable("settings_ui"),
+                      Responsable("shared_preferences"),
+                      Responsable("stacked"),
+                      Responsable("stacked_services"),
+                      Responsable("synchronized"),
+                      Responsable("url_launcher"),
                     ],
                   ),
                 ],
