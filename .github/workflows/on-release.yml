@@ -23,18 +23,10 @@ jobs:
         with:
           java-version: '12.x'
 
-      - name: Android NDK toolchain Setup
-        uses: ravinderjangra/android-ndk-toolchain-setup@0.2
-        with:
-          api: '21'
-          arch: 'arm'
-          install-location: 'toolchains'
-          force: trues
-
       - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.5.3'
+          flutter-version: '3.3.0'
 
       - name: Flutter version
         run: flutter --version
