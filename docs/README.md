@@ -144,6 +144,11 @@ Mobile app to use createstructure service
 │           └── WorkspaceSettings.xcsettings
 ├── l10n.yaml
 ├── lib
+│   ├── generated
+│   │   ├── intl
+│   │   │   ├── messages_all.dart
+│   │   │   └── messages_en.dart
+│   │   └── l10n.dart
 │   ├── l10n
 │   │   ├── app_en.arb
 │   │   └── app_it.arb
@@ -158,7 +163,7 @@ Mobile app to use createstructure service
 │   │   └── SettingsType.dart
 │   ├── view
 │   │   ├── AutoLogin.dart
-│   │   ├── Credentials.dart
+│   │   ├── Credits.dart
 │   │   ├── Home.dart
 │   │   ├── Login.dart
 │   │   ├── ManualLogin.dart
@@ -181,12 +186,13 @@ Mobile app to use createstructure service
 └── test
     └── widget_test.dart
 
-54 directories, 114 files
+56 directories, 117 files
 ```
 ##  Changelog 
 Repo where there is the mobile application to use createstructure
 
 - [ Changelog ](#changelog)
+  - [[10.01.10] - 2023-07-30](#100110---2023-07-30)
   - [[10.01.09] - 2022-03-12](#100109---2022-03-12)
   - [[10.01.08] - 2022-01-05](#100108---2022-01-05)
   - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
@@ -198,6 +204,10 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+### [10.01.10] - 2023-07-30
+- Updated packages to current versions and fixed related bugs
+- Recreated pop-up
 
 ### [10.01.09] - 2022-03-12
 - [Added charts automation](https://github.com/createstructure/libraries-createstructure/issues/11)
