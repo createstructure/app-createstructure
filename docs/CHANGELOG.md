@@ -2,9 +2,11 @@
 Repo where there is the mobile application to use createstructure
 
 - [Changelog](#changelog)
+  - [[10.01.11] - 2023-08-24](#100111---2023-08-24)
   - [[10.01.10] - 2023-07-30](#100110---2023-07-30)
   - [[10.01.09] - 2022-03-12](#100109---2022-03-12)
   - [[10.01.08] - 2022-01-05](#100108---2022-01-05)
+  - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
   - [[10.01.07] - 2021-12-29](#100107---2021-12-29)
   - [[10.01.06] - 2021-12-26](#100106---2021-12-26)
   - [[10.01.05] - 2021-12-17](#100105---2021-12-17)
@@ -14,6 +16,9 @@ Repo where there is the mobile application to use createstructure
   - [[10.01.01] - 2021-12-10](#100101---2021-12-10)
   - [[09.01.01] - 2021-08-06](#090101---2021-08-06)
     - [Added](#added)
+
+## [10.01.11] - 2023-08-24
+- App targets upgraded to Android 13 (API level 33), just for Android application
 
 ## [10.01.10] - 2023-07-30
 - Updated packages to current versions and fixed related bugs
